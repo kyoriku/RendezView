@@ -18,7 +18,7 @@ Vendor.init(
       allowNull: false,
     },
     event_types: {
-      type: DataTypes.JSON,
+      type: DataTypes.JSON, // array of type_ids
     }
   },
   {
