@@ -13,9 +13,9 @@ router.get(`/`, async (req,res) => {
     }
 });
 
-// Getting a single event 
+// Getting a single event, only available for users who are logged in
 
-router.get(`/:id`, async(req, res) =>{
+router.get(`/:id`, withAuth, async(req, res) =>{
     try {
         const eventData = await Event.findByPk(req.params.id)
         res.status(200).json(eventData);
@@ -24,3 +24,29 @@ router.get(`/:id`, async(req, res) =>{
     }
 });
 
+// Creating an event 
+
+router.post(`/`, withAuth, async (req, res) => {
+    try {
+        const newEvent = await Event.create({
+            ...req.body,
+            owner_id: req.session.owner_id,
+        });
+
+        res.status(200).json(newProject);
+    } catch (err) {
+        res.status(400).json(err);
+    }
+});
+
+router.delete(`/:id`, async (req, res) => {
+    try {
+        const eventData = await Event.destroy({
+            where: {
+                id: req.params.id
+            }
+        });
+    } catch (err) {
+        res.status(500).json(err);
+    }
+})
