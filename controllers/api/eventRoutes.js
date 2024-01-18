@@ -39,6 +39,9 @@ router.post(`/`, withAuth, async (req, res) => {
     }
 });
 
+
+// Deleting an event 
+
 router.delete(`/:id`, async (req, res) => {
     try {
         const eventData = await Event.destroy({
