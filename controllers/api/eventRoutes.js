@@ -15,4 +15,12 @@ router.get(`/`, async (req,res) => {
 
 // Getting a single event 
 
-router.get(`/:event_id`)
+router.get(`/:id`, async(req, res) =>{
+    try {
+        const eventData = await Event.findByPk(req.params.id)
+        res.status(200).json(eventData);
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
+
