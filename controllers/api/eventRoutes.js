@@ -76,3 +76,5 @@ router.put(`/:id`, withAuth, async (req, res) => {
             res.json(err);
         });
 });
+
+module.exports = router;

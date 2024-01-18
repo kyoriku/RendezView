@@ -14,12 +14,12 @@ router.get('/', async (req, res) => {
     });
 
     const events = eventData.map((event) => event.get({ plain: true }));
-    // res.status(200).json(events); // For Insomnia testing purposes
+    res.status(200).json(events); // For Insomnia testing purposes
 
-    res.render('homepage', {
-      events,
-      logged_in: req.session.logged_in,
-    });
+    // res.render('homepage', {
+    //   events,
+    //   logged_in: req.session.logged_in,
+    // });
   } catch (err) {
     res.status(500).json(err);
   }
@@ -37,12 +37,12 @@ router.get('/event/:id', async (req, res) => {
       ],
     });
     const event = eventData.get({ plain: true });
-    // res.status(200).json(event); // For Insomnia testing purposes
+    res.status(200).json(event); // For Insomnia testing purposes
 
-    res.render('event', {
-      ...event,
-      logged_in: req.session.logged_in,
-    });
+    // res.render('event', {
+    //   ...event,
+    //   logged_in: req.session.logged_in,
+    // });
   } catch (err) {
     res.status(500).json(err);
   }
