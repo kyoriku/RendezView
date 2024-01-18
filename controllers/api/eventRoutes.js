@@ -33,7 +33,7 @@ router.post(`/`, withAuth, async (req, res) => {
             owner_id: req.session.owner_id,
         });
 
-        res.status(200).json(newProject);
+        res.status(200).json(newEvent);
     } catch (err) {
         res.status(400).json(err);
     }
@@ -42,16 +42,16 @@ router.post(`/`, withAuth, async (req, res) => {
 // Deleting an event, only available for user who are logged in and is the creator of the event
 
 router.delete(`/:id`, withAuth, async (req, res) => {
-    try {
-        const eventData = await Event.destroy({
-            where: {
-                id: req.params.id
-            }
-        });
-    } catch (err) {
-        res.status(500).json(err);
-    }
-})
+    Event.destroy({
+        where: {
+            id: req.params.id
+        }
+    })
+        .then((deletedEvent) => {
+            res.json(deletedEvent);
+        }) 
+        .catch ((err) => res.status(500).json(err));
+});
 
 // Updating an event, only available for users who are logged in and is the creator of the event
 
