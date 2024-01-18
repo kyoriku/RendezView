@@ -24,7 +24,7 @@ router.get(`/:id`, withAuth, async(req, res) =>{
     }
 });
 
-// Creating an event 
+// Creating an event, only available for users who are logged in
 
 router.post(`/`, withAuth, async (req, res) => {
     try {
@@ -39,10 +39,9 @@ router.post(`/`, withAuth, async (req, res) => {
     }
 });
 
+// Deleting an event, only available for user who are logged in and is the creator of the event
 
-// Deleting an event 
-
-router.delete(`/:id`, async (req, res) => {
+router.delete(`/:id`, withAuth, async (req, res) => {
     try {
         const eventData = await Event.destroy({
             where: {
@@ -53,3 +52,27 @@ router.delete(`/:id`, async (req, res) => {
         res.status(500).json(err);
     }
 })
+
+// Updating an event, only available for users who are logged in and is the creator of the event
+
+router.put(`/:id`, withAuth, async (req, res) => {
+    Event.update(
+        {
+            id: req.body.id,
+            name: req.body.name,
+            attendees: req.body.attendees,
+        },
+        {
+            where: {
+                id: req.params.id,
+            }
+        }
+    )
+        .then((updatedEvents) => {
+            res.json(updatedEvents);
+        })
+        .catch((err) => {
+            console.log(err);
+            res.json(err);
+        });
+});
