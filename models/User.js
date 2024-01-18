@@ -35,6 +35,10 @@ User.init(
         len: [8],
       },
     },
+    can_own: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: false,
+    },
   },
   {
     hooks: {
