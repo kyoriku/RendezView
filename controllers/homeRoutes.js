@@ -41,6 +41,11 @@ router.get('/profile', withAuth, async (req, res) => {
       logged_in: true
     });
 
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 
 // router.get("/event/:id", withAuth, async (req, res) => { // Temporarily bypassing withAuth for testing purposes
 router.get('/event/:id', async (req, res) => {
@@ -68,7 +73,7 @@ router.get('/event/:id', async (req, res) => {
 
 router.get('/login', (req, res) => {
   if (req.session.logged_in) {
-    res.redirect('/dashboard');
+    res.redirect('/profile');
     return;
   }
 
