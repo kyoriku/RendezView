@@ -13,16 +13,17 @@ const venueData = [
   {
     name: "Rogers Centre",
     capacity: 49286,
-    event_types: [1,2],
+    event_types: [1,2,3,4,5,6,7],
     latitude: 43.6417837,
     longitude: -79.3917186
   },
   {
     name: "Adelaide Hall",
     capacity: 475,
-    event_types: [1,2],
+    event_types: [1,3,4,5,6,7],
     latitude: 43.6485609,
     longitude: -79.3889531
+
   },
 ]
 
