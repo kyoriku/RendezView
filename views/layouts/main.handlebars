@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Google Maps Autocomplete Example</title>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <header>
+    <nav class="navbar">
+      <a class="navbar-brand" href="/">Event Planner</a>
+      <div class="navbar-nav">
+        <a class="nav-item nav-link" href="/">Home</a>
+        <a class="nav-item nav-link" href="/event">Events</a>
+        <a class="nav-item nav-link" href="#">My Events</a>
+        {{#if logged_in}}
+        <a class="nav-item nav-link" href="/profile">Profile</a>
+        <a class="nav-item nav-link" id="logout">Logout</a>
+        {{else}}
+        <a class="nav-item nav-link" href="/login">Login</a>
+        {{/if}}
+      </div>
+    </nav>
+  </header>
+  {{{ body }}}
+  <footer>
+    <p class="footer-text">
+      Made with love
+    </p>
+  </footer>
+  <script src="./js/logout.js"></script>
+</body>
+
+</html>
