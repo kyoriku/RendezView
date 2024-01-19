@@ -63,7 +63,7 @@ router.put(`/:id`, withAuth, async (req, res) => {
             description: req.body.description,
             date: req.body.date,
             location: req.body.location,
-            user_id: req.body.user_iq
+            user_id: req.body.user_id
         },
         {
             where: {
