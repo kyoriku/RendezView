@@ -22,7 +22,7 @@ const venueData = [
     capacity: 475,
     event_types: [1,2],
     latitude: 43.6485609,
-    longitude: --79.3889531
+    longitude: -79.3889531
   },
 ]
 
