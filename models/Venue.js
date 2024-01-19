@@ -18,7 +18,7 @@ Venue.init(
       allowNull: false,
     },
     capacity: {
-        type: DataTypes.INT,
+      type: DataTypes.INTEGER,
     },
     event_types: {
       type: DataTypes.JSON, // array of type_ids
