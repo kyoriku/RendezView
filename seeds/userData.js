@@ -6,17 +6,20 @@ const userData = [
   {
     username: "Sal",
     email: "sal@hotmail.com",
-    password: "password123"
+    password: "password123",
+    can_own: 1
   },
   {
     username: "Lernantino",
     email: "lernantino@gmail.com",
-    password: "password456"
+    password: "password456",
+    can_own: 1
   },
   {
     username: "Amiko",
     email: "amiko2k20@aol.com",
-    password: "password789"
+    password: "password789",
+    can_own: 1
   }
 ];
 
