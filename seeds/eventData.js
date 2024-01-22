@@ -23,6 +23,34 @@ const eventData = [
     date: "2024-04-10",
     location: "Grand Ballroom",
     user_id: 3
+  },
+  {
+    name: "Glow Rave Party",
+    description: "Experience the ultimate glow-in-the-dark rave! Dance to the beats of top DJs, surrounded by neon lights and fluorescent decorations. Wear your brightest colors and let the party vibes take over.",
+    date: "2024-05-10",
+    location: "Electric Neon Warehouse",
+    user_id: 1
+  },
+  {
+    name: "Summer Beach Bash",
+    description: "Celebrate the summer vibes at our beach party! Enjoy live music, beach games, and refreshing tropical drinks. Get ready for a day of sun, sand, and endless fun by the ocean.",
+    date: "2024-06-25",
+    location: "Sunny Shores Beach Club",
+    user_id: 2,
+  },
+  {
+    name: "Masquerade Ball After-Party",
+    description: "Keep the celebration going after the masquerade ball! Join us for an exclusive after-party with DJ sets, dance performances, and a glamorous atmosphere. Unmask and let loose on the dance floor.",
+    date: "2024-07-15",
+    location: "Midnight Elegance Lounge",
+    user_id: 3
+  },
+  {
+    name: "VIP Rooftop Soiree",
+    description: "Elevate your nightlife experience at our VIP rooftop soiree. Enjoy breathtaking views, premium cocktails, and live entertainment. Dress to impress for a night of sophistication and style.",
+    date: "2024-08-20",
+    location: "Skyline Terrace Lounge",
+    user_id: 1
   }
 ]
 

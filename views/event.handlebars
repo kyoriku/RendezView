@@ -1,15 +1,49 @@
 <body>
-    <div class="event">
-   <div class="pac-card" id="pac-card">
+  {{#if events.length}}
+  <div class="col-md-6 event-list">
+    <h3>Upcoming Events:</h3>
+
+    {{#each events as |event|}}
+    <div class="row mb-2">
+      <div class="col-md-8">
+        <h4><a href="/event/{{event.id}}">{{event.name}}</a></h4>
+        <p>{{event.description}}</p>
+        <p>Date: {{event.date}}</p>
+      </div>
+
+    </div>
+    {{/each}}
+  </div>
+  {{/if}}
+
+  <!-- Event details -->
+  <div class="row mb-2">
+    <div class="col-md-8">
+      <h4>{{name}}</h4>
+      <p>{{description}}</p>
+      <p>Date: {{date}}</p>
+
+      <!-- RSVP button -->
+      <form action="/event/{{id}}/rsvp" method="POST">
+        <button type="submit" class="btn btn-primary">RSVP</button>
+      </form>
+
+      <!-- List of attendees -->
+      <h2>Attendees:</h2>
+      <ul>
+        {{#each rsvps}}
+        <li>{{ user.username }}</li>
+        {{/each}}
+      </ul>
+    </div>
+  </div>
+
+  <div class="event">
+    <div class="pac-card" id="pac-card">
       <div>
         <div id="title">Autocomplete search</div>
         <div id="type-selector" class="pac-controls">
-          <input
-            type="radio"
-            name="type"
-            id="changetype-all"
-            checked="checked"
-          />
+          <input type="radio" name="type" id="changetype-all" checked="checked" />
           <label for="changetype-all">All</label>
 
           <input type="radio" name="type" id="changetype-establishment" />
@@ -45,8 +79,9 @@
       <span id="place-name" class="title"></span><br />
       <span id="place-address"></span>
     </div>
-</div>
+  </div>
+
 </body>
 <script src="./js/autocomplete.js"></script>
 <script
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCTzXWGfplQ-Nd6XfyIjkevA-2mB75q87s&libraries=places&callback=initMap"></script>
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCTzXWGfplQ-Nd6XfyIjkevA-2mB75q87s&libraries=places&callback=initMap"></script>
