@@ -1,43 +1,52 @@
-<div class="row">
-  <div class="col-auto">
-    <h2>Welcome, {{username}}!</h2>
+<div class="events-banner">    
+  <div>
+    <h1 class="upcoming-text">Welcome, {{username}}!</h1>
   </div>
 </div>
-<div class="row mt-4">
-  <div class="col-md-6">
+{{!-- <div class="row">
+  <div class="col-auto welcome">
+    <h2>Welcome, {{username}}!</h2>
+  </div>
+</div> --}}
+<div class="row mt-4 profile-events">
+  <div class="col-md-6 create-event">
     <h3>Create a New Event:</h3>
+    <br>
     <form class="form new-event-form">
       <div class="form-group">
         <label for="event-name">Event name:</label>
-        <input class="form-input" type="text" id="event-name" name="event-name" />
+        <input class="form-input event-input" type="text" id="event-name" name="event-name" />
       </div>
       <div class="form-group">
         <label for="event-description">Description:</label>
-        <textarea class="form-input" id="event-description" name="event-description"></textarea>
+        <textarea class="form-input event-input" type="text" id="event-description" name="event-description"></textarea>
       </div>
       <div class="form-group">
         <label for="event-date">Date:</label>
-        <input class="form-input" type="datetime-local" id="event-date" name="event-date" />
+        <input class="form-input event-input" type="datetime-local" id="event-date" name="event-date" />
       </div>
+      <br>
       <div class="form-group">
-        <button type="submit" class="btn btn-primary">Create</button>
+        <button type="submit" class="btn btn-primary btn-dark homepage-btn">Create</button>
       </div>
     </form>
   </div>
   {{#if events.length}}
   <div class="col-md-6 event-list">
     <h3>My Events:</h3>
+    <br>
     {{#each events as |event|}}
-    <div class="row mb-2">
-      <div class="col-md-8">
-        <h4><a href="/event/{{event.id}}">{{event.name}}</a></h4>
-        <p>{{event.description}}</p>
-        <p>Date: {{event.date}}</p>
+      <div class="row mb-2">
+        <div class="col-md-8">
+          <h4><a href="/event/{{event.id}}">{{event.name}}</a></h4>
+          <p>{{event.description}}</p>
+          <p>Date: {{event.date}}</p>
+        </div>
+        <div class="col-md-4">
+          <button class="btn btn-primary btn-dark homepage-btn" data-id="{{event.id}}">Update</button>
+          <button class="btn btn-primary btn-dark homepage-btn" data-id="{{event.id}}">Delete</button>
+        </div>
       </div>
-      <div class="col-md-4">
-        <button class="btn btn-sm btn-danger" data-id="{{event.id}}">DELETE</button>
-      </div>
-    </div>
     {{/each}}
   </div>
   {{/if}}

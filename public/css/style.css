@@ -170,3 +170,54 @@
   .event {
     height: 90vh;
   }
+
+  .profile-events {
+    padding-top: 2vh;
+    padding-bottom: 2vh;
+  }
+
+  .create-event {
+    padding-left: 10vh;
+  }
+
+  .event-input {
+    width: 100%;
+  }
+
+  .event-list {
+    padding-left: 10vh;
+  }
+
+  .events-banner {
+    background-image: url("../images/event-banner.jpg");
+    background-size: cover;
+    height: 40vh;
+  }
+
+  .upcoming-text {
+    text-align: center;
+    padding: 15vh 0vh;
+    font-size: 100px;
+    opacity: 100%;
+  }
+
+  .all-event {
+    padding: 5vh 10vh;
+  }
+
+  a:hover {
+    text-decoration: none;
+  }
+
+  .event-card {
+    background-color: #1e1e1e;
+    padding: 2.5vh;
+  }
+
+  .event-card:hover {
+    border: 2px solid rgb(167, 162, 131);
+  }
+
+  .event-name {
+    color: rgba(167, 162, 131);
+  }
