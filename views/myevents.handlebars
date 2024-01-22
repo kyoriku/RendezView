@@ -1,0 +1,17 @@
+<body>
+    <h1>My Events</h1>
+
+    <h2>User RSVPs</h2>
+    <ul>
+        {{#each userRsvps}}
+            <li>{{this.user.username}} has RSVPed to {{this.event.name}}</li>
+        {{/each}}
+    </ul>
+
+    <h2>Event RSVPs</h2>
+    <ul>
+        {{#each eventRsvps}}
+            <li>{{this.user.username}} has RSVPed to this event</li>
+        {{/each}}
+    </ul>
+</body>

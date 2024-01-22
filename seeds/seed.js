@@ -6,6 +6,7 @@ const seedUsers = require('./userData');
 const seedEvents = require('./eventData');
 const seedVenues = require('./venueData');
 const seedTypes = require('./typeData');
+const seedRSVPs = require('./rsvpData');
 
 // Define an asynchronous function named 'seedDatabase' to populate the database with sample data
 const seedDatabase = async () => {
@@ -20,6 +21,10 @@ const seedDatabase = async () => {
   // Seed the database with events using the seedEvents function and log a message indicating completion
   await seedEvents();
   console.log('\n----- EVENTS SEEDED -----\n');
+
+  // Seed the database with RSVPs using the seedRSVPs function and log a message indicating completion
+  await seedRSVPs();
+  console.log('\n----- RSVPS SEEDED -----\n');
 
   // Seed the database with venues using the seedVenues function and log a message indicating completion
   await seedVenues();

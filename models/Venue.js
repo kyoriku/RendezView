@@ -1,9 +1,7 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Venue extends Model {
-
-}
+class Venue extends Model {}
 
 Venue.init(
   {
@@ -38,6 +36,5 @@ Venue.init(
     modelName: 'venue',
   }
 );
-
 
 module.exports = Venue;

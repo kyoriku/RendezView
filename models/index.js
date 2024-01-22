@@ -2,6 +2,7 @@ const User = require('./User');
 const Event = require('./Event');
 const Venue = require('./Venue');
 const Type = require('./Type');
+const Rsvp = require('./Rsvp')
 
 User.hasMany(Event, {
   foreignKey: 'user_id',
@@ -11,12 +12,32 @@ Event.belongsTo(User, {
   foreignKey: 'user_id'
 });
 
-Type.hasMany(Event, {
-  foreignKey: 'type_id',
+Event.hasMany(Rsvp, { 
+  foreignKey: 'event_id' 
 });
 
-Venue.hasMany(Event, {
-  foreignKey: 'venue_id',
+// Type.hasMany(Event, {
+//   foreignKey: 'type_id',
+// });
+
+// Venue.hasMany(Event, {
+//   foreignKey: 'venue_id',
+// });
+
+Event.belongsToMany(User, {
+  through: Rsvp,
+  foreignKey: 'event_id',
 });
 
-module.exports = { User, Event, Venue, Type };
+User.belongsToMany(Event, {
+  through: Rsvp,
+  foreignKey: 'user_id',
+});
+
+Rsvp.belongsTo(User, { 
+  foreignKey: 'user_id' });
+
+Rsvp.belongsTo(Event, { 
+  foreignKey: 'event_id' });
+
+module.exports = { User, Event, Venue, Type, Rsvp };

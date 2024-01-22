@@ -1,11 +1,7 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
-const User = require('./User');
-const Type = require('./Type');
 
-class Event extends Model {
-
-}
+class Event extends Model {}
 
 Event.init(
   {
@@ -27,13 +23,6 @@ Event.init(
       type: DataTypes.DATE,
       allowNull: false,
     },
-    // venue_id: {
-    //   type: DataTypes.STRING,
-    //   references: {
-    //     model: 'venue',
-    //     key: 'id',
-    //   },
-    // },
     user_id: {
       type: DataTypes.INTEGER,
       references: {
@@ -41,9 +30,20 @@ Event.init(
         key: 'id',
       },
     },
-    attendees: {
-      type: DataTypes.JSON,
-    }
+    // type_id: {
+    //   type: DataTypes.STRING,
+    //   references: {
+    //     model: 'type',
+    //     key: 'id',
+    //   },
+    // },
+    // venue_id: {
+    //   type: DataTypes.STRING,
+    //   references: {
+    //     model: 'venue',
+    //     key: 'id',
+    //   },
+    // },
   },
   {
     sequelize,
@@ -53,8 +53,5 @@ Event.init(
     modelName: 'event',
   }
 );
-
-Event.belongsTo(User, { foreignKey: 'user_id' });
-Event.belongsTo(Type, { foreignKey: 'type_id' });
 
 module.exports = Event;
