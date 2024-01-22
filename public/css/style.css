@@ -171,12 +171,13 @@
     height: 90vh;
   }
 
-  .create-event {
-    padding-left: 10vh;
+  .profile-events {
+    padding-top: 2vh;
+    padding-bottom: 2vh;
   }
 
-  .welcome {
-    padding: 5vh 10vh;
+  .create-event {
+    padding-left: 10vh;
   }
 
   .event-input {
@@ -191,7 +192,6 @@
     background-image: url("../images/event-banner.jpg");
     background-size: cover;
     height: 40vh;
-    /* opacity: 60%; */
   }
 
   .upcoming-text {
