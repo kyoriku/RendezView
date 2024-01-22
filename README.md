@@ -37,6 +37,8 @@ These are the major frameworks/libraries used in our project:
 - ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
 - ![Sequelize](https://img.shields.io/badge/Sequelize-52B0E7?style=for-the-badge&logo=Sequelize&logoColor=white)
 
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
 ## Description
 
 This is a party planner app that allows users to browse, create, edit, and delete events. The target user(s) for this app includes users who want to host/attend events, party planning companies, party venue owners, and party vendors. 
@@ -47,9 +49,11 @@ This app is also a great solution for people who are new to the city and are loo
 
 This app gives a chance for party planning companies, party venue owners, and party vendors to expand their customer base and reach by offering services for hosted events. This will not only give users the ease of having to worry about venues and decorations but also let these companies reach more audience. Party planning companies can use our apps to customize to what vendors and venues they have and make this app their very own platform for their users. 
 
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## Installation
 
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## Usage
 
@@ -59,9 +63,11 @@ Logged in users are also able to create events by submitting a form to the app. 
 
 Users are able to create their own profile to RSVP and create their own events. It will also create a dashboard for them where it showcases the events they are hosting and will be attending in the near future, allowing them to keep everything organized. 
 
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
 ## Visuals
 
-
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## Contributions
 
@@ -75,6 +81,7 @@ Here are the templates/icons used in the README file:
 - Icon for README: <a href="https://www.flaticon.com/free-icons/daily" title="daily icons">Daily icons created by Freepik - Flaticon</a>
 - Build With icons for README: https://ileriayo.github.io/markdown-badges/
 
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## Roadmap
 
@@ -101,9 +108,13 @@ While we have achieved everything on our MVP, there are aspects of the project w
      - Allowing certain groups of people to view hosted events 
      - Ability to create private groups in the app and invite users to these groups 
 
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
 ## License
 
 MIT License was used for this project. Please refer to the repo for more information.
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## Questions
 
@@ -127,5 +138,7 @@ Developers:
     - Github Username: tchan128
     - Email: tchan12899@gmail.com
 
-Main Github Repo: https://github.com/kyoriku/party-planner
-Deployed Work on Heroku: 
+- Main Github Repo: https://github.com/kyoriku/party-planner
+- Deployed Work on Heroku: 
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
