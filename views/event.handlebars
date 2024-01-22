@@ -17,6 +17,7 @@
   {{/if}}
 
   <!-- Event details -->
+  {{#if showDetails}}
   <div class="row mb-2">
     <div class="col-md-8">
       <h4>{{name}}</h4>
@@ -32,11 +33,12 @@
       <h2>Attendees:</h2>
       <ul>
         {{#each rsvps}}
-        <li>{{ user.username }}</li>
+        <li>{{user.username}}</li>
         {{/each}}
       </ul>
     </div>
   </div>
+  {{/if}}
 
   <div class="event">
     <div class="pac-card" id="pac-card">
