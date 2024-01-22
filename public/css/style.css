@@ -19,6 +19,9 @@
     animation: slideAndFade 1.3s ease-out; /* Adjust the duration and timing function as needed */
   }
   
+  textarea {
+    color: black;
+  }
   
   body {
     background-color:#424242;
@@ -170,3 +173,90 @@
   .event {
     height: 90vh;
   }
+ /*------------event------------*/
+.profile-main {
+    min-height: 90vh;
+    max-height: fit-content;
+}
+
+.profile-header {
+    width: 100%;
+    height: 20vh;
+    background-image: url(../images/pexels-abby-kihano-431722.jpg);
+    background-size: cover;
+    background-position: 100% 85%;
+}
+
+.profile-image {
+    height: 125px;
+    width: 125px;
+    background-image: url(../images/transparent-icon\(2\).webp);
+    background-size: cover;
+    border-radius: 50%;
+    background-repeat: no-repeat;
+    background-color: white;
+    background-position: 50% 50%;
+    /* margin: 8vh 0vh 0vh 5vh; */
+}
+
+.profile-username {
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+width: 25%;
+padding: 8vh 0vh 0vh 0vh;
+}
+
+.profile-content-main {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.event-creation {
+    padding: 15vh 0vh 0vh 3vh;
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+}
+
+.event-form {
+    width: 90%;
+    height: fit-content;
+}
+
+.form-input {
+    width: 100%;
+
+}
+
+.username {
+    padding: 1vh 0vh 0vh 0vh;
+}
+
+.event-list-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 4vh 0vh 0vh 0vh;
+}
+
+.event-list {
+    width: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+   
+    background-color: #5d5c5c;
+    padding: 2vh 0vh 2vh 0vh;
+}
+
+.single-event {
+    width: 100%;
+    margin: 2vh 0vh 2vh 0vh;
+}
+
+.single-event:hover {
+    text-decoration: none;
+    opacity:70%;
+}

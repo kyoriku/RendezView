@@ -1,46 +1,51 @@
-<div class="row">
-  <div class="col-auto">
-    <h2>Welcome, {{username}}!</h2>
+<div class="profile-main">
+  <div class="profile-header">
+    <div class="profile-username">
+      <div class="profile-image"></div>
+      <h3 class="username"> {{username}}</h3>
+    </div>
   </div>
-</div>
-<div class="row mt-4">
-  <div class="col-md-6">
-    <h3>Create a New Event:</h3>
-    <form class="form new-event-form">
-      <div class="form-group">
-        <label for="event-name">Event name:</label>
-        <input class="form-input" type="text" id="event-name" name="event-name" />
-      </div>
-      <div class="form-group">
-        <label for="event-description">Description:</label>
-        <textarea class="form-input" id="event-description" name="event-description"></textarea>
-      </div>
-      <div class="form-group">
-        <label for="event-date">Date:</label>
-        <input class="form-input" type="datetime-local" id="event-date" name="event-date" />
-      </div>
-      <div class="form-group">
-        <button type="submit" class="btn btn-primary">Create</button>
-      </div>
-    </form>
-  </div>
-  {{#if events.length}}
-  <div class="col-md-6 event-list">
-    <h3>My Events:</h3>
-    {{#each events as |event|}}
-    <div class="row mb-2">
-      <div class="col-md-8">
-        <h4><a href="/event/{{event.id}}">{{event.name}}</a></h4>
-        <p>{{event.description}}</p>
-        <p>Date: {{event.date}}</p>
-      </div>
-      <div class="col-md-4">
-        <button class="btn btn-sm btn-danger" data-id="{{event.id}}">DELETE</button>
+  <div class="profile-content-main">
+    <div class="event-creation">
+      <div class="event-form">
+        <h3>Create a New Event:</h3>
+        <form class="form new-event-form">
+          <div class="form-group">
+            <input class="form-input" placeholder="Event Name:" type="text" id="event-name" name="event-name" />
+          </div>
+          <div class="form-group">
+            <textarea class="form-input" placeholder="Description" id="event-description"
+              name="event-description"></textarea>
+          </div>
+          <div class="form-group">
+            <input class="form-input" placeholder="Date:" type="datetime-local" id="event-date" name="event-date" />
+          </div>
+          <div class="form-group">
+            <button type="submit" class="btn btn-primary">Create</button>
+          </div>
+        </form>
       </div>
     </div>
-    {{/each}}
+    {{#if events.length}}
+    <div class="event-list-container">
+      <h3>My Events</h3>
+      {{#each events as |event|}}
+      <a href="/event/{{event.id}}" class="single-event">
+        <div class="event-list">
+          <div class="col-md-8">
+            <h4>{{event.name}}</h4>
+            <p>{{event.description}}</p>
+            <p>Date: {{event.date}}</p>
+          </div>
+          <div class="delete-btn">
+            <button class="btn btn-sm btn-danger" data-id="{{event.id}}">DELETE</button>
+          </div>
+        </div>
+      </a>
+      {{/each}}
+    </div>
+    {{/if}}
   </div>
-  {{/if}}
 </div>
 
 <script src="./js/profile.js"></script>
