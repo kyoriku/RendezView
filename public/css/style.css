@@ -170,3 +170,19 @@
   .event {
     height: 90vh;
   }
+
+  .create-event {
+    padding-left: 10vh;
+  }
+
+  .welcome {
+    padding: 5vh 10vh;
+  }
+
+  .event-input {
+    width: 100%;
+  }
+
+  .event-list {
+    padding-left: 10vh;
+  }
