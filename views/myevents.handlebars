@@ -1,17 +1,31 @@
-<body>
-    <h1>My Events</h1>
+  <h1>My Events</h1>
 
-    <h2>User RSVPs</h2>
+  <h2>RSVP'd Events</h2>
+  {{#if rsvpEvents.length}}
     <ul>
-        {{#each userRsvps}}
-            <li>{{this.user.username}} has RSVPed to {{this.event.name}}</li>
-        {{/each}}
+      {{#each rsvpEvents}}
+        <li>
+          <a href="/event/{{this.id}}">{{this.name}}</a> by {{this.user.username}}
+        </li>
+      {{/each}}
     </ul>
+  {{else}}
+    <p>No RSVP'd events</p>
+  {{/if}}
 
-    <h2>Event RSVPs</h2>
+  <h2>Created Events</h2>
+  {{#if createdEvents.length}}
     <ul>
-        {{#each eventRsvps}}
-            <li>{{this.user.username}} has RSVPed to this event</li>
-        {{/each}}
+      {{#each createdEvents}}
+        <li>
+          {{#if this.event}}
+            <a href="/event/{{this.event.id}}">{{this.event.name}}</a> by {{this.user.username}}
+          {{else}}
+            <a href="/event/{{this.id}}">{{this.name}}</a> by {{this.user.username}}
+          {{/if}}
+        </li>
+      {{/each}}
     </ul>
-</body>
+  {{else}}
+    <p>No created events</p>
+  {{/if}}
