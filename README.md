@@ -26,7 +26,7 @@
 
 These are the major frameworks/libraries used in our project:
 
--
+- [![Node][Node.js]][Node-url]
 
 ## Description
 
