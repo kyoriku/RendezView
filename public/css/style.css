@@ -204,3 +204,20 @@
   .all-event {
     padding: 5vh 10vh;
   }
+
+  a:hover {
+    text-decoration: none;
+  }
+
+  .event-card {
+    background-color: #1e1e1e;
+    padding: 2.5vh;
+  }
+
+  .event-card:hover {
+    border: 2px solid rgb(167, 162, 131);
+  }
+
+  .event-name {
+    color: rgba(167, 162, 131);
+  }
