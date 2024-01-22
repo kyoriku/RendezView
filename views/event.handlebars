@@ -1,8 +1,11 @@
 <body>
+  <div class="events-banner">    
+    <div>
+      <h1 class="upcoming-text">Upcoming Events</h1>
+    </div>
+  </div>
   {{#if events.length}}
-  <div class="col-md-6 event-list">
-    <h3>Upcoming Events:</h3>
-
+  <div class="col-md-6 event-list all-event">
     {{#each events as |event|}}
     <div class="row mb-2">
       <div class="col-md-8">

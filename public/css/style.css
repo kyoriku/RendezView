@@ -186,3 +186,21 @@
   .event-list {
     padding-left: 10vh;
   }
+
+  .events-banner {
+    background-image: url("../images/event-banner.jpg");
+    background-size: cover;
+    height: 40vh;
+    /* opacity: 60%; */
+  }
+
+  .upcoming-text {
+    text-align: center;
+    padding: 15vh 0vh;
+    font-size: 100px;
+    opacity: 100%;
+  }
+
+  .all-event {
+    padding: 5vh 10vh;
+  }
