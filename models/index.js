@@ -16,14 +16,6 @@ Event.hasMany(Rsvp, {
   foreignKey: 'event_id' 
 });
 
-// Type.hasMany(Event, {
-//   foreignKey: 'type_id',
-// });
-
-// Venue.hasMany(Event, {
-//   foreignKey: 'venue_id',
-// });
-
 Event.belongsToMany(User, {
   through: Rsvp,
   foreignKey: 'event_id',
@@ -35,9 +27,16 @@ User.belongsToMany(Event, {
 });
 
 Rsvp.belongsTo(User, { 
-  foreignKey: 'user_id' });
+  foreignKey: 'user_id' 
+});
 
 Rsvp.belongsTo(Event, { 
-  foreignKey: 'event_id' });
+  foreignKey: 'event_id' 
+});
+
+Event.belongsTo(Venue, {
+  foreignKey: 'venue_id',
+});
+  
 
 module.exports = { User, Event, Venue, Type, Rsvp };
