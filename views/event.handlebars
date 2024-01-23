@@ -5,16 +5,16 @@
     </div>
   </div>
   {{#if events.length}}
-  <div class="col-md-6 event-list all-event">
+  <div class="row gx-2 event-list all-event">
     {{#each events as |event|}}
-    <div class="row mb-2">
-      <a href="/event/{{event.id}}">
-        <div class="col-md-8 event-card">
-          <h4 class="event-name">{{event.name}}</h4>
-          <p>{{event.description}}</p>
-          <p>Date: {{event.date}}</p>
-        </div>
-      </a>
+    <div class="col-md-4">
+      <div class="event-card">
+        <a href="/event/{{event.id}}">
+            <h4 class="event-name">{{event.name}}</h4>
+            <p>{{event.description}}</p>
+            <p>Date: {{event.date}}</p>
+        </a>
+      </div>  
     </div>
     {{/each}}
   </div>
@@ -27,6 +27,7 @@
       <h4>{{name}}</h4>
       <p>{{description}}</p>
       <p>Date: {{date}}</p>
+      <p>Venue: {{venue.name}}</p>
 
       <!-- RSVP button -->
       <form action="/event/{{id}}/rsvp" method="POST">
