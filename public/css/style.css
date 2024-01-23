@@ -202,7 +202,7 @@
   }
 
   .all-event {
-    padding: 5vh 10vh;
+    padding: 5vh 8vh;
   }
 
   a:hover {
@@ -212,6 +212,7 @@
   .event-card {
     background-color: #1e1e1e;
     padding: 2.5vh;
+    margin: 1.5vh 0vh;
   }
 
   .event-card:hover {
