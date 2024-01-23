@@ -40,7 +40,7 @@
         <div class="col-md-8">
           <h4><a href="/event/{{event.id}}">{{event.name}}</a></h4>
           <p>{{event.description}}</p>
-          <p>Date: {{event.date}}</p>
+          <p>Date: {{format_date event.date}} {{format_time event.date}}</p>
         </div>
         <div class="col-md-4">
           <button class="btn btn-primary btn-dark homepage-btn" data-id="{{event.id}}">Update</button>
