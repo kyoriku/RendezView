@@ -1,5 +1,5 @@
 const apiUrl = 'https://maps.googleapis.com/maps/api/place/nearbysearch/json';
-const apiKey = 'AIzaSyCTzXWGfplQ-Nd6XfyIjkevA-2mB75q87s';
+const apiKey = process.env.API_KEY;
 
 // Construct the URL with parameters
 const url = `${apiUrl}?keyword=cruise&location=-33.8670522,151.1957362&radius=1500&type=restaurant&key=${apiKey}`;
