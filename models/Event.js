@@ -30,17 +30,17 @@ Event.init(
         key: 'id',
       },
     },
+    venue_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'venue',
+        key: 'id',
+      },
+    },
     // type_id: {
     //   type: DataTypes.STRING,
     //   references: {
     //     model: 'type',
-    //     key: 'id',
-    //   },
-    // },
-    // venue_id: {
-    //   type: DataTypes.STRING,
-    //   references: {
-    //     model: 'venue',
     //     key: 'id',
     //   },
     // },

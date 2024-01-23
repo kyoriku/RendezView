@@ -18,6 +18,10 @@ const seedDatabase = async () => {
   await seedUsers();
   console.log('\n----- USERS SEEDED -----\n');
 
+  // Seed the database with venues using the seedVenues function and log a message indicating completion
+  await seedVenues();
+  console.log('\n----- VENUES SEEDED -----\n');
+
   // Seed the database with events using the seedEvents function and log a message indicating completion
   await seedEvents();
   console.log('\n----- EVENTS SEEDED -----\n');
@@ -25,10 +29,6 @@ const seedDatabase = async () => {
   // Seed the database with RSVPs using the seedRSVPs function and log a message indicating completion
   await seedRSVPs();
   console.log('\n----- RSVPS SEEDED -----\n');
-
-  // Seed the database with venues using the seedVenues function and log a message indicating completion
-  await seedVenues();
-  console.log('\n----- VENUES SEEDED -----\n');
 
   // Seed the database with types using the seedTypes function and log a message indicating completion
   await seedTypes();

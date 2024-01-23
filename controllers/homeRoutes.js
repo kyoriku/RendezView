@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { User, Event, Rsvp } = require('../models');
+const { User, Event, Rsvp, Venue } = require('../models');
 const withAuth = require('../utils/auth');
 
 // Home Page
@@ -66,6 +66,7 @@ router.get("/event/:id", withAuth, async (req, res) => {
           model: Rsvp,
           include: [{ model: User, attributes: ['username'] }],
         },
+        Venue,
       ],
     });
 
