@@ -29,7 +29,7 @@
         <label for="event-venue">Venue:</label>
         <select class="form-input event-input" id="event-venue" name="event-venue">
           {{#each venues as |venue|}}
-            <option value=`{{venue.name}}`>{{venue.name}}</option>
+            <option id=`{{venue.id}}`>{{venue.name}}</option>
           {{/each}}
         </select>
       </div>
