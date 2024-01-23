@@ -188,8 +188,20 @@
     padding-left: 10vh;
   }
 
+  .welcome-banner {
+    background-image: url("../images/event-banner.jpg");
+    background-size: cover;
+    height: 40vh;
+  }
+
   .events-banner {
     background-image: url("../images/event-banner.jpg");
+    background-size: cover;
+    height: 40vh;
+  }
+
+  .indv-banner {
+    background-image: url("../images/black_tie_03.jpeg"); 
     background-size: cover;
     height: 40vh;
   }
@@ -209,7 +221,7 @@
     text-decoration: none;
   }
 
-  .event-card {
+  .event-card , .event-info {
     background-color: #1e1e1e;
     padding: 2.5vh;
     margin: 1.5vh 0vh;
@@ -226,4 +238,17 @@
   #event-venue {
     color: #1e1e1e;
     padding: 1vh 0.3vh;
+  }
+
+  .rsvp-btn {
+    text-align: center;
+    margin: 2.5vh 0vh;
+  }
+
+  .event-head {
+    font-size: 20px;
+  }
+
+  span {
+    color: rgb(167, 162, 131);
   }

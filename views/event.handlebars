@@ -1,10 +1,11 @@
 <body>
+  {{#if events.length}}
   <div class="events-banner">    
     <div>
       <h1 class="upcoming-text">Upcoming Events</h1>
     </div>
   </div>
-  {{#if events.length}}
+  {{!-- {{#if events.length}} --}}
   <div class="row gx-2 event-list all-event">
     {{#each events as |event|}}
     <div class="col-md-4">
@@ -22,30 +23,51 @@
 
   <!-- Event details -->
   {{#if showDetails}}
-  <div class="row mb-2">
-    <div class="col-md-8">
-      <h4>{{name}}</h4>
-      <p>{{description}}</p>
-      <p>Date: {{format_date date}} {{format_time date}}</p>
-      <p>Venue: {{venue.name}}</p>
-
-      <!-- RSVP button -->
-      <form action="/event/{{id}}/rsvp" method="POST">
-        <button type="submit" class="btn btn-primary">RSVP</button>
-      </form>
-
+  <div class="indv-banner"> 
+    <div>
+      <h1 class="upcoming-text">{{name}}</h1>
+    </div>
+  </div>
+  <div class="row mb-2 all-event">
+    <div class="col-md-6">
+      Google Map API
+    </div>
+    <div class="col-md-6">
+      <div class="event-info">
+        <p class="event-head" >{{description}}</p>
+        <p class="event-head"><span>Date:</span> {{format_date date}} {{format_time date}}</p>
+        <p class="event-head"><span>Venue:</span> {{venue.name}}</p>
+      </div>
+  </div>
+  <div class="row mb-2"></div>
       <!-- List of attendees -->
-      <h2>Attendees:</h2>
+      <h4>Attendees:</h4>
       <ul>
         {{#each rsvps}}
         <li>{{user.username}}</li>
+        <li>John Doe</li>
+        <li>Jane Smith</li>
+        <li>Michael Johnson</li>
+        <li>Alice Williams</li>
+        <li>Robert Brown</li>
+        <li>Emily Davis</li>
+        <li>Christopher Taylor</li>
+        <li>Olivia Anderson</li>
+        <li>William Miller</li>
+        <li>Sophia Wilson</li>
         {{/each}}
       </ul>
     </div>
   </div>
+  <!-- RSVP button -->
+  <div class="rsvp-btn">
+    <form action="/event/{{id}}/rsvp" method="POST">
+      <button type="submit" class="btn btn-primary btn-dark homepage-btn">RSVP</button>
+    </form>
+  </div>
   {{/if}}
 
-  <div class="event">
+  {{!-- <div class="event">
     <div class="pac-card" id="pac-card">
       <div>
         <div id="title">Autocomplete search</div>
@@ -91,4 +113,4 @@
 </body>
 <script src="./js/autocomplete.js"></script>
 <script
-  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCTzXWGfplQ-Nd6XfyIjkevA-2mB75q87s&libraries=places&callback=initMap"></script>
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCTzXWGfplQ-Nd6XfyIjkevA-2mB75q87s&libraries=places&callback=initMap"></script> --}}
