@@ -1,3 +1,5 @@
+require('dotenv').config(); // Load environment variables from a .env file
+
 const apiUrl = 'https://maps.googleapis.com/maps/api/place/nearbysearch/json';
 const apiKey = process.env.API_KEY;
 
