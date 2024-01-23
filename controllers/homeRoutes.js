@@ -176,10 +176,17 @@ router.get('/profile', withAuth, async (req, res) => {
     // Convert Sequelize instances to plain objects for rendering
     const events = eventData.map((event) => event.get({ plain: true }));
 
+    // Fetch all venues
+    const venueData = await Venue.findAll();
+
+    // Convert Sequelize instances to plain objects for rendering
+    const venues = venueData.map((venue) => venue.get({ plain: true }));
+
     // Render profile page with user details, created events, and login status
     res.render('profile', {
       ...user,
       events,
+      venues,
       logged_in: req.session.logged_in,
     });
   } catch (err) {

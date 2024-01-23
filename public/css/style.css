@@ -222,3 +222,8 @@
   .event-name {
     color: rgba(167, 162, 131);
   }
+
+  #event-venue {
+    color: #1e1e1e;
+    padding: 1vh 0.3vh;
+  }
