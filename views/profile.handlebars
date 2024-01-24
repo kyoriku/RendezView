@@ -24,7 +24,7 @@
         <label for="event-venue">Venue:</label>
         <select class="form-input event-input" id="event-venue" name="event-venue">
           {{#each venues as |venue|}}
-            <option id=`{{venue.id}}`>{{venue.name}}</option>
+            <option value='{{venue.id}}'>{{venue.name}}</option>
           {{/each}}
         </select>
       </div>
@@ -46,8 +46,8 @@
           <p>Date: {{format_date event.date}} {{format_time event.date}}</p>
         </div>
         <div class="col-md-4">
-          <button class="btn btn-primary btn-dark homepage-btn" data-id="{{event.id}}">Update</button>
-          <button class="btn btn-primary btn-dark homepage-btn" data-id="{{event.id}}">Delete</button>
+          <button class="btn btn-primary btn-dark update-btn" data-id="{{event.id}}" id="updateEventButton">Update</button>
+        <button class="btn btn-primary btn-dark delete-btn" data-id="{{event.id}}">Delete</button>
         </div>
       </div>
     {{/each}}
