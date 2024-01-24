@@ -62,7 +62,7 @@ router.get("/event/:id", withAuth, async (req, res) => {
     const eventData = await Event.findByPk(req.params.id, {
       include: [
         { model: User, attributes: ['username'] },
-        { model: Venue, attributes: ['name' ] },
+        { model: Venue, attributes: ['name'] },
         {
           model: Rsvp,
           include: [{ model: User, attributes: ['username'] }],
@@ -200,7 +200,7 @@ router.get("/edit-event/:id", withAuth, async (req, res) => {
     // Fetch all events with associated user information
     const eventData = await Event.findByPk(req.params.id, {
       include: [
-        { model: Venue, attributes: ['name' ] },
+        { model: Venue, attributes: ['name'] },
         { model: User, attributes: ["username"] },
       ],
     });
