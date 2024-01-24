@@ -65,7 +65,7 @@
     text-wrap: balance;
   }
   
-  .homepage-btn {
+  .homepage-btn, .update-btn, .delete-btn, .edit-btn {
     background-color: #5d5c5c;
   }
   

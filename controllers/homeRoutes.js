@@ -62,17 +62,16 @@ router.get("/event/:id", withAuth, async (req, res) => {
     const eventData = await Event.findByPk(req.params.id, {
       include: [
         { model: User, attributes: ['username'] },
+        { model: Venue, attributes: ['name' ] },
         {
           model: Rsvp,
           include: [{ model: User, attributes: ['username'] }],
         },
-        Venue,
       ],
     });
 
     // Convert Sequelize instance to plain object for rendering
     const event = eventData.get({ plain: true });
-
     // Render individual event page with event details, login status, and details visibility
     res.render('event', {
       ...event,
@@ -124,9 +123,10 @@ router.get('/myevents', withAuth, async (req, res) => {
     const rsvpEventData = await Rsvp.findAll({
       where: { user_id: req.session.user_id },
       include: [
-        { 
-          model: Event, 
-          include: [{ model: User, attributes: ['username'] }] 
+        { model: Venue, attributes: ['name' ] },
+        {
+          model: Event,
+          include: [{ model: User, attributes: ['username'] }]
         }
       ],
     });
@@ -192,6 +192,38 @@ router.get('/profile', withAuth, async (req, res) => {
   } catch (err) {
     // Handle internal server error
     res.status(500).json({ error: 'Internal Server Error' });
+  }
+});
+
+// Route: Edit event page
+router.get("/edit-event/:id", withAuth, async (req, res) => {
+  try {
+    // Fetch all events with associated user information
+    const eventData = await Event.findByPk(req.params.id, {
+      include: [
+        { model: Venue, attributes: ['name' ] },
+        { model: User, attributes: ["username"] },
+      ],
+    });
+
+    // Convert Sequelize instances to plain objects for rendering
+    const event = eventData.get({ plain: true });
+
+    // Fetch all venues
+    const venueData = await Venue.findAll();
+
+    // Convert Sequelize instances to plain objects for rendering
+    const venues = venueData.map((venue) => venue.get({ plain: true }));
+
+    // Render edit-event page with event details, venues, and login status
+    res.render("edit-event", {
+      ...event,
+      venues,
+      logged_in: req.session.logged_in,
+    });
+  } catch (err) {
+    // Handle internal server error
+    res.status(500).json(err);
   }
 });
 

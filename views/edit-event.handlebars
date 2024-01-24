@@ -1,0 +1,34 @@
+<div class="col-md-6 create-event">
+  <h3>Edit Event:</h3>
+  <br>
+  <form class="form edit-event-form">
+    <div class="form-group">
+      <label for="event-name">Event name:</label>
+      <input class="form-input event-input" type="text" id="event-name" name="event-name" />
+    </div>
+    <div class="form-group">
+      <label for="event-description">Description:</label>
+      <input maxlength="250" class="form-input event-input" type="text" id="event-description"
+        name="event-description"></textarea>
+    </div>
+    <div class="form-group">
+      <label for="event-date">Date:</label>
+      <input class="form-input event-input" type="datetime-local" id="event-date" name="event-date" />
+    </div>
+      <div class="form-group">
+        <label for="event-venue">Venue:</label>
+        <select class="form-input event-input" id="event-venue" name="event-venue">
+          {{#each venues as |venue|}}
+            <option value='{{venue.id}}'>{{venue.name}}</option>
+          {{/each}}
+        </select>
+      </div>
+    <br>
+    <div class="form-group">
+      <button type="submit" class="btn btn-primary btn-dark edit-btn" data-id="{{event.id}}"
+        id="updateEventButton">Update</button>
+    </div>
+  </form>
+</div>
+
+<script src="/js/editEvent.js"></script>

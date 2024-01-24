@@ -1,5 +1,5 @@
 const router = require(`express`).Router();
-const { Event, User, Rsvp } = require(`../../models`);
+const { Event } = require(`../../models`);
 const withAuth = require(`../../utils/auth`);
 
 // Getting all events when user presses "Events" tab; all users have access 
@@ -28,8 +28,13 @@ router.get(`/:id`, withAuth, async (req, res) => {
 // Creating an event, only available for users who are logged in
 router.post(`/`, withAuth, async (req, res) => {
   try {
+    const { name, description, date, venue } = req.body;
+
     const newEvent = await Event.create({
-      ...req.body,
+      name,
+      description,
+      date,
+      venue_id: venue,
       user_id: req.session.user_id,
     });
 
@@ -40,16 +45,17 @@ router.post(`/`, withAuth, async (req, res) => {
 });
 
 // Updating an event, only available for users who are logged in and is the creator of the event
-router.put(`/:id`, withAuth, async (req, res) => {
+router.put(`/:id`, /*withAuth,*/ async (req, res) => {
   try {
+    console.log('Request Body:', req.body);
     const updatedEvents = await Event.update(
       {
         name: req.body.name,
         description: req.body.description,
         date: req.body.date,
-        // venue_id: req.body.venue_id,
+        venue_id: req.body.venue,
         // type_id: req.body.type_id,
-        attendees: req.body.attendees,
+        // attendees: req.body.attendees,
       },
       {
         where: {

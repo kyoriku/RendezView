@@ -6,7 +6,6 @@ const newFormHandler = async (event) => {
   const date = document.querySelector('#event-date').value.trim();
   const venue = document.querySelector(`#event-venue`).value.trim();
 
-
   if (name && description && date && venue) {
     const response = await fetch('/api/events', {
       method: 'POST',
@@ -25,7 +24,7 @@ const newFormHandler = async (event) => {
 };
 
 const delButtonHandler = async (event) => {
-  if (event.target.hasAttribute('data-id')) {
+  if (event.target.classList.contains('delete-btn')) {
     const id = event.target.getAttribute('data-id');
 
     const response = await fetch(`/api/events/${id}`, {
@@ -44,6 +43,14 @@ document
   .querySelector('.new-event-form')
   .addEventListener('submit', newFormHandler);
 
-document
-  .querySelector('.event-list')
-  .addEventListener('click', delButtonHandler);
+  document.querySelectorAll('.delete-btn').forEach(button => {
+    button.addEventListener('click', delButtonHandler);
+  });
+  
+  document.querySelectorAll('.update-btn').forEach(button => {
+    button.addEventListener('click', () => {
+      const { dataset: { id } } = button;
+      window.location.href = `/edit-event/${id}`;
+    });
+  });
+  
