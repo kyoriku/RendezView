@@ -1,4 +1,5 @@
 <body>
+  {{!-- All events page --}}
   {{#if events.length}}
   <div class="events-banner">    
     <div>
@@ -21,25 +22,27 @@
   </div>
   {{/if}}
 
-  <!-- Event details -->
+  {{!-- Event details - individual event page --}}
   {{#if showDetails}}
+  {{!-- Welcome banner with image --}}
   <div class="indv-banner"> 
     <div>
       <h1 class="upcoming-text">{{name}}</h1>
     </div>
   </div>
+  {{!-- Google Map & Info --}}
   <div class="row mb-2 event-holder">
-    <div class="col-md-6 gm">
+    <div class="col-md-4 gm">
       <h1>Google Map API</h1>
     </div>
-    <div class="col-md-6">
-      <div class="event-info">
+    <div class="col-md-8">
+      <div>
         <p class="event-head" >{{description}}</p>
         <p class="event-head"><span>Date:</span> {{format_date date}} {{format_time date}}</p>
         <p class="event-head"><span>Venue:</span> {{venue.name}}</p>
     </div>
   </div>
-  <!-- List of attendees -->
+  {{!-- List of Attendees --}}
   <div class="row mb-12 attendee-header">
       <h4>Attendees:</h4>
   </div>
@@ -49,16 +52,6 @@
       <li class="attendee">{{user.username}}</li>
       {{!-- Place holders --}}
       <li class="attendee">John Doe</li>
-      <li class="attendee">Jane Smith</li>
-      <li class="attendee">Emily Davis</li>
-      <li class="attendee">Christopher Taylor</li>
-      <li class="attendee">Olivia Anderson</li>
-            <li class="attendee">John Doe</li>
-      <li class="attendee">Jane Smith</li>
-      <li class="attendee">Emily Davis</li>
-      <li class="attendee">Christopher Taylor</li>
-      <li class="attendee">Olivia Anderson</li>
-            <li class="attendee">John Doe</li>
       <li class="attendee">Jane Smith</li>
       <li class="attendee">Emily Davis</li>
       <li class="attendee">Christopher Taylor</li>
