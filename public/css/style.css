@@ -184,10 +184,6 @@
     width: 100%;
   }
 
-  .event-list {
-    padding-left: 10vh;
-  }
-
   .welcome-banner {
     background-image: url("../images/lights-fotor-20240123185123.jpg");
     background-size: cover;
@@ -211,10 +207,6 @@
     padding: 15vh 0vh;
     font-size: 100px;
     opacity: 100%;
-  }
-
-  .all-event {
-    padding: 5vh 8vh;
   }
 
   a:hover {
@@ -241,7 +233,7 @@
   }
   
   .event-holder {
-    margin: 5vh 4vh 1vh 4vh;
+    margin: 5vh 5vh 1vh 5vh;
   }
 
   .rsvp-btn {
