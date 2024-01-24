@@ -1,11 +1,13 @@
 <body>
+  {{!-- All events page --}}
+  {{#if events.length}}
   <div class="events-banner">    
     <div>
       <h1 class="upcoming-text">Upcoming Events</h1>
     </div>
   </div>
-  {{#if events.length}}
-  <div class="row gx-2 event-list all-event">
+  {{!-- {{#if events.length}} --}}
+  <div class="row gx-2 event-list event-holder">
     {{#each events as |event|}}
     <div class="col-md-4">
       <div class="event-card">
@@ -20,32 +22,46 @@
   </div>
   {{/if}}
 
-  <!-- Event details -->
+  {{!-- Event details - individual event page --}}
   {{#if showDetails}}
-  <div class="row mb-2">
-    <div class="col-md-8">
-      <h4>{{name}}</h4>
-      <p>{{description}}</p>
-      <p>Date: {{format_date date}} {{format_time date}}</p>
-      <p>Venue: {{venue.name}}</p>
-
-      <!-- RSVP button -->
-      <form action="/event/{{id}}/rsvp" method="POST">
-        <button type="submit" class="btn btn-primary">RSVP</button>
-      </form>
-
-      <!-- List of attendees -->
-      <h2>Attendees:</h2>
-      <ul>
-        {{#each rsvps}}
-        <li>{{user.username}}</li>
-        {{/each}}
-      </ul>
+  {{!-- Welcome banner with image --}}
+  <div class="indv-banner"> 
+    <div>
+      <h1 class="upcoming-text">{{name}}</h1>
     </div>
+  </div>
+  {{!-- Google Map & Info --}}
+  <div class="row mb-2 event-holder">
+    <div class="col-md-4 gm">
+      <h1>Google Map API</h1>
+    </div>
+    <div class="col-md-8">
+      <div>
+        <p class="event-head" >{{description}}</p>
+        <p class="event-head"><span>Date:</span> {{format_date date}} {{format_time date}}</p>
+        <p class="event-head"><span>Venue:</span> {{venue.name}}</p>
+    </div>
+      {{!-- List of Attendees --}}
+    <div class="row mb-12 attendee-header">
+      <p class="event-head"><span>Attendees:</span><p>
+    </div>
+      <div class="row mb-12 attendee-list"></div>
+        <ul>
+        {{#each rsvps}}
+        <li class="attendee">{{user.username}}</li>
+        {{/each}}
+        </ul>
+      </div>
+  </div>
+  <!-- RSVP button -->
+  <div class="rsvp-btn">
+    <form action="/event/{{id}}/rsvp" method="POST">
+      <button type="submit" class="btn btn-primary btn-dark homepage-btn">RSVP</button>
+    </form>
   </div>
   {{/if}}
 
-  <div class="event">
+  {{!-- <div class="event">
     <div class="pac-card" id="pac-card">
       <div>
         <div id="title">Autocomplete search</div>
@@ -91,4 +107,4 @@
 </body>
 <script src="./js/autocomplete.js"></script>
 <script
-  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCTzXWGfplQ-Nd6XfyIjkevA-2mB75q87s&libraries=places&callback=initMap"></script>
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCTzXWGfplQ-Nd6XfyIjkevA-2mB75q87s&libraries=places&callback=initMap"></script> --}}

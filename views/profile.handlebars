@@ -1,13 +1,8 @@
-<div class="events-banner">    
+<div class="welcome-banner">    
   <div>
     <h1 class="upcoming-text">Welcome, {{username}}!</h1>
   </div>
 </div>
-{{!-- <div class="row">
-  <div class="col-auto welcome">
-    <h2>Welcome, {{username}}!</h2>
-  </div>
-</div> --}}
 <div class="row mt-4 profile-events">
   <div class="col-md-6 create-event">
     <h3>Create a New Event:</h3>
@@ -24,6 +19,14 @@
       <div class="form-group">
         <label for="event-date">Date:</label>
         <input class="form-input event-input" type="datetime-local" id="event-date" name="event-date" />
+      </div>
+      <div class="form-group">
+        <label for="event-venue">Venue:</label>
+        <select class="form-input event-input" id="event-venue" name="event-venue">
+          {{#each venues as |venue|}}
+            <option id=`{{venue.id}}`>{{venue.name}}</option>
+          {{/each}}
+        </select>
       </div>
       <br>
       <div class="form-group">
