@@ -45,7 +45,7 @@ router.post(`/`, withAuth, async (req, res) => {
 });
 
 // Updating an event, only available for users who are logged in and is the creator of the event
-router.put(`/:id`, /*withAuth,*/ async (req, res) => {
+router.put(`/:id`, withAuth, async (req, res) => {
   try {
     console.log('Request Body:', req.body);
     const updatedEvents = await Event.update(
