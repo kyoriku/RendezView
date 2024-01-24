@@ -41,17 +41,27 @@
         <p class="event-head"><span>Date:</span> {{format_date date}} {{format_time date}}</p>
         <p class="event-head"><span>Venue:</span> {{venue.name}}</p>
     </div>
-  </div>
-  {{!-- List of Attendees --}}
-  <div class="row mb-12 attendee-header">
-      <h4>Attendees:</h4>
-  </div>
-  <div class="row mb-12 attendee-list"></div>
-    <ul>
-      {{#each rsvps}}
-      <li class="attendee">{{user.username}}</li>
-      {{/each}}
-    </ul>
+      {{!-- List of Attendees --}}
+    <div class="row mb-12 attendee-header">
+      <p class="event-head"><span>Attendees:</span><p>
+    </div>
+      <div class="row mb-12 attendee-list"></div>
+        <ul>
+        {{#each rsvps}}
+        <li class="attendee">{{user.username}}</li>
+        <li class="attendee">John Doe</li>
+        <li class="attendee">Jane Smith</li>
+        <li class="attendee">Michael Johnson</li>
+        <li class="attendee">Alice Williams</li>
+        <li class="attendee">Robert Brown</li>
+        <li class="attendee">Emily Davis</li>
+        <li class="attendee">Christopher Taylor</li>
+        <li class="attendee">Olivia Anderson</li>
+        <li class="attendee">William Miller</li>
+        <li class="attendee">Sophia Wilson</li>
+        {{/each}}
+        </ul>
+      </div>
   </div>
   <!-- RSVP button -->
   <div class="rsvp-btn">

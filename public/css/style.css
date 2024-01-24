@@ -253,18 +253,18 @@
     list-style-type: none;
     background-color: #1e1e1e;
     padding: 1vh;
-    margin: 0.5vh;
+    margin: 0.5vh 0.2vh;
     display: inline-block;
   }
 
   .attendee-header, .attendee-header h4 {
     width: 100%;
     color:rgb(167, 162, 131);
-    margin-left: 1vh;
+    margin-left: 0vh;
   }
 
   ul {
-    padding: 1.5vh;
+    padding: 0vh;
   }
 
   .gm {
