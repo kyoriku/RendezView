@@ -1,29 +1,38 @@
+<!-- Container for the form to edit an event -->
 <div class="col-md-6 create-event">
+  <!-- Heading for the edit event section -->
   <h3>Edit Event:</h3>
   <br>
+  <!-- Form for editing an event -->
   <form class="form edit-event-form">
+    <!-- Form field for the event name -->
     <div class="form-group">
       <label for="event-name">Event name:</label>
       <input class="form-input event-input" type="text" id="event-name" name="event-name" />
     </div>
+    <!-- Form field for the event description with a maximum length of 250 characters -->
     <div class="form-group">
       <label for="event-description">Description:</label>
       <input maxlength="250" class="form-input event-input" type="text" id="event-description"
         name="event-description"></textarea>
     </div>
+    <!-- Form field for the event date in a datetime-local input format -->
     <div class="form-group">
       <label for="event-date">Date:</label>
       <input class="form-input event-input" type="datetime-local" id="event-date" name="event-date" />
     </div>
-      <div class="form-group">
-        <label for="event-venue">Venue:</label>
-        <select class="form-input event-input" id="event-venue" name="event-venue">
-          {{#each venues as |venue|}}
-            <option value='{{venue.id}}'>{{venue.name}}</option>
-          {{/each}}
-        </select>
-      </div>
+    <!-- Form field for selecting the event venue from a dropdown menu -->
+    <div class="form-group">
+      <label for="event-venue">Venue:</label>
+      <select class="form-input event-input" id="event-venue" name="event-venue">
+        {{#each venues as |venue|}}
+          <!-- Option for each venue with its id as the value and name as the display text -->
+          <option value='{{venue.id}}'>{{venue.name}}</option>
+        {{/each}}
+      </select>
+    </div>
     <br>
+    <!-- Form submission button with data attributes for the event ID -->
     <div class="form-group">
       <button type="submit" class="btn btn-primary btn-dark edit-btn" data-id="{{event.id}}"
         id="updateEventButton">Update</button>
@@ -31,4 +40,5 @@
   </form>
 </div>
 
+<!-- Include external JavaScript file for handling the edit event functionality -->
 <script src="/js/editEvent.js"></script>
