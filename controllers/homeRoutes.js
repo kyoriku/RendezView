@@ -123,7 +123,6 @@ router.get('/myevents', withAuth, async (req, res) => {
     const rsvpEventData = await Rsvp.findAll({
       where: { user_id: req.session.user_id },
       include: [
-        { model: Venue, attributes: ['name' ] },
         {
           model: Event,
           include: [{ model: User, attributes: ['username'] }]
