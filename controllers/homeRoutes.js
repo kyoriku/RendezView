@@ -62,7 +62,7 @@ router.get("/event/:id", withAuth, async (req, res) => {
     const eventData = await Event.findByPk(req.params.id, {
       include: [
         { model: User, attributes: ['username'] },
-        { model: Venue, attributes: ['name'] },
+        { model: Venue, attributes: ['name', 'longitude', 'latitude'] },
         {
           model: Rsvp,
           include: [{ model: User, attributes: ['username'] }],
@@ -73,6 +73,7 @@ router.get("/event/:id", withAuth, async (req, res) => {
     // Convert Sequelize instance to plain object for rendering
     const event = eventData.get({ plain: true });
     // Render individual event page with event details, login status, and details visibility
+    console.log(event)
     res.render('event', {
       ...event,
       logged_in: req.session.logged_in,
