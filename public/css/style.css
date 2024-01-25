@@ -332,3 +332,9 @@
     background-size: cover;
     background-position: 0% 85%;
   }
+
+  #map {
+    width: 350px; /* Set the width as needed */
+    height: 350px; /* Set the height as needed */
+    border: 1px solid #ccc; /* Add a border or other styling if desired */
+  }
