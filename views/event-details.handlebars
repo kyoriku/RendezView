@@ -1,0 +1,67 @@
+{{!-- Event details - individual event page --}}
+
+{{!-- Welcome banner with image --}}
+<div class="indv-banner">
+  <div>
+    <h1 class="upcoming-text">{{name}}</h1>
+  </div>
+</div>
+{{!-- Google Map & Info --}}
+<div class="row mb-2 event-holder">
+  <div class="col-md-4 gm">
+    <div id="map"></div>
+  </div>
+  <div class="col-md-8">
+    <!-- Event details -->
+    <div>
+      <p class="event-head">{{description}}</p>
+      <p class="event-head"><span>Date:</span> {{format_date date}} {{format_time date}}</p>
+      <p class="event-head"><span>Venue:</span> {{venue.name}}</p>
+    </div>
+    {{!-- List of Attendees --}}
+    <div class="row mb-12 attendee-header">
+      <p class="event-head"><span>Attendees:</span>
+      <p>
+    </div>
+    <div class="row mb-12 attendee-list"></div>
+    <ul>
+      {{#each rsvps}}
+      <li class="attendee">{{user.username}}</li>
+      {{/each}}
+    </ul>
+  </div>
+</div>
+<!-- RSVP button -->
+<div class="rsvp-btn">
+  <form action="/event/{{id}}/rsvp" method="POST">
+    <button type="submit" class="btn btn-primary btn-dark homepage-btn">RSVP</button>
+  </form>
+</div>
+
+<!-- Google Map API -->
+<script>
+  function initMap() {
+    var center = { lat: {{venue.latitude}}, lng: {{venue.longitude}} };
+
+    var map = new google.maps.Map(document.getElementById('map'), {
+      zoom: 15, // Adjust the zoom level as needed
+      center: center
+    });
+
+    var marker = new google.maps.Marker({
+      position: center,
+      map: map,
+      title: 'My Location'
+    });
+  }
+  var head = document.getElementsByTagName('head')[0];
+  var insertBefore = head.insertBefore;
+  head.insertBefore = function (newElement, referenceElement) {
+    if (newElement.href && newElement.href.indexOf('https://fonts.googleapis.com/css?family=Roboto') === 0) {
+      return;
+    }
+    insertBefore.call(head, newElement, referenceElement);
+  };
+</script>
+
+<script src={{map_string}}></script>
