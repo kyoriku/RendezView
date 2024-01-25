@@ -1,3 +1,4 @@
+require('dotenv').config();
 const router = require('express').Router();
 const { User, Event, Rsvp, Venue } = require('../models');
 const withAuth = require('../utils/auth');
@@ -72,12 +73,14 @@ router.get("/event/:id", withAuth, async (req, res) => {
 
     // Convert Sequelize instance to plain object for rendering
     const event = eventData.get({ plain: true });
+    const map_string = process.env.MAP_STRING;
     // Render individual event page with event details, login status, and details visibility
     console.log(event)
     res.render('event', {
       ...event,
       logged_in: req.session.logged_in,
       showDetails: true,
+      map_string: map_string,
     });
   } catch (err) {
     // Handle internal server error
