@@ -1,14 +1,15 @@
 <div class="homepage">
-<div class="intro-text fade-in">
-  <h1 class="intro-heading">
-    Welcome to RendezView
-  </h1>
-  <p class="intro-slogan">Where visions become extraordinary events!</p>
-<p class="intro-message">We specialize in crafting unforgettable experiences that mirror your distinctive style. Let's transform your ideas into remarkable celebrations together!</p>
-{{#if logged_in}}
-<a href="/login"><button class="btn btn-dark homepage-btn">Start Planning →</button></a>
- {{else}}
- <a href="/myevents"><button class="btn btn-dark homepage-btn">Start Planning →</button></a>
-  {{/if}}
-</div>
+  <div class="intro-text fade-in">
+    <h1 class="intro-heading">
+      Welcome to RendezView
+    </h1>
+    <p class="intro-slogan">Where visions become extraordinary events!</p>
+    <p class="intro-message">We specialize in crafting unforgettable experiences that mirror your distinctive style.
+      Let's transform your ideas into remarkable celebrations together!</p>
+    {{#if logged_in}}
+    <a href="/login"><button class="btn btn-dark homepage-btn">Start Planning →</button></a>
+    {{else}}
+    <a href="/myevents"><button class="btn btn-dark homepage-btn">Start Planning →</button></a>
+    {{/if}}
+  </div>
 </div>

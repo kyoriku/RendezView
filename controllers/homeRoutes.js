@@ -75,7 +75,6 @@ router.get("/event/:id", withAuth, async (req, res) => {
     const event = eventData.get({ plain: true });
     const map_string = process.env.MAP_STRING;
     // Render individual event page with event details, login status, and details visibility
-    console.log(event)
     res.render('event', {
       ...event,
       logged_in: req.session.logged_in,
