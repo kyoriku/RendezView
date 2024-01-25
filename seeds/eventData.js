@@ -51,7 +51,21 @@ const eventData = [
     date: "2024-08-20",
     user_id: 1,
     venue_id: 7
-  }
+  },
+  {
+    name: "Enchanted Forest Gala",
+    description: "Step into a magical world at our Enchanted Forest Gala. Immerse yourself in the beauty of nature, surrounded by twinkling lights, lush greenery, and enchanting music. It's a night of elegance and wonder.",
+    date: "2024-09-30",
+    user_id: 2,
+    venue_id: 8
+  },
+  {
+    name: "Tech Innovation Summit",
+    description: "Explore the latest in technology and innovation at our Tech Innovation Summit. Join industry leaders, tech enthusiasts, and visionaries for insightful discussions, product showcases, and networking opportunities.",
+    date: "2024-10-25",
+    user_id: 3,
+    venue_id: 9
+  },
 ]
 
 // Define a function called seedEvents, which uses the bulkCreate method of the Event model to insert multiple events into the database
