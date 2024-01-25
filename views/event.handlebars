@@ -1,87 +1,91 @@
-<body onload="initMap()">
+{{!-- All events page --}}
+{{#if events.length}}
+<div class="events-banner">
+  <div>
+    <h1 class="upcoming-text">Upcoming Events</h1>
+  </div>
+</div>
+{{!-- {{#if events.length}} --}}
+<div class="row gx-2 event-list event-holder">
+  {{#each events as |event|}}
+  <div class="col-md-4">
+    <div class="event-card">
+      <a href="/event/{{event.id}}">
+        <h4 class="event-name">{{event.name}}</h4>
+        <p>{{event.description}}</p>
+        <p>Date: {{format_date event.date}} {{format_time event.date}}</p>
+      </a>
+    </div>
+  </div>
+  {{/each}}
+</div>
+{{/if}}
 
-  {{!-- All events page --}}
-  {{#if events.length}}
-  <div class="events-banner">    
+{{!-- Event details - individual event page --}}
+{{#if showDetails}}
+{{!-- Welcome banner with image --}}
+<div class="indv-banner">
+  <div>
+    <h1 class="upcoming-text">{{name}}</h1>
+  </div>
+</div>
+{{!-- Google Map & Info --}}
+<div class="row mb-2 event-holder">
+  <div class="col-md-4 gm">
+    <div id="map"></div>
+  </div>
+  <div class="col-md-8">
+    <!-- Event details -->
     <div>
-      <h1 class="upcoming-text">Upcoming Events</h1>
+      <p class="event-head">{{description}}</p>
+      <p class="event-head"><span>Date:</span> {{format_date date}} {{format_time date}}</p>
+      <p class="event-head"><span>Venue:</span> {{venue.name}}</p>
     </div>
-  </div>
-  {{!-- {{#if events.length}} --}}
-  <div class="row gx-2 event-list event-holder">
-    {{#each events as |event|}}
-    <div class="col-md-4">
-      <div class="event-card">
-        <a href="/event/{{event.id}}">
-            <h4 class="event-name">{{event.name}}</h4>
-            <p>{{event.description}}</p>
-            <p>Date: {{format_date event.date}} {{format_time event.date}}</p>
-        </a>
-      </div>  
-    </div>
-    {{/each}}
-  </div>
-  {{/if}}
-
-  {{!-- Event details - individual event page --}}
-  {{#if showDetails}}
-  {{!-- Welcome banner with image --}}
-  <div class="indv-banner"> 
-    <div>
-      <h1 class="upcoming-text">{{name}}</h1>
-    </div>
-  </div>
-  {{!-- Google Map & Info --}}
-  <div class="row mb-2 event-holder">
-    <div class="col-md-4 gm">
-      <div id="map"></div>
-    </div>
-    <div class="col-md-8">
-      <div>
-        <p class="event-head" >{{description}}</p>
-        <p class="event-head"><span>Date:</span> {{format_date date}} {{format_time date}}</p>
-        <p class="event-head"><span>Venue:</span> {{venue.name}}</p>
-    </div>
-      {{!-- List of Attendees --}}
+    {{!-- List of Attendees --}}
     <div class="row mb-12 attendee-header">
-      <p class="event-head"><span>Attendees:</span><p>
+      <p class="event-head"><span>Attendees:</span>
+      <p>
     </div>
-      <div class="row mb-12 attendee-list"></div>
-        <ul>
-        {{#each rsvps}}
-        <li class="attendee">{{user.username}}</li>
-        {{/each}}
-        </ul>
-      </div>
+    <div class="row mb-12 attendee-list"></div>
+    <ul>
+      {{#each rsvps}}
+      <li class="attendee">{{user.username}}</li>
+      {{/each}}
+    </ul>
   </div>
-  <!-- RSVP button -->
-  <div class="rsvp-btn">
-    <form action="/event/{{id}}/rsvp" method="POST">
-      <button type="submit" class="btn btn-primary btn-dark homepage-btn">RSVP</button>
-    </form>
-  </div>
-  {{/if}}
+</div>
+<!-- RSVP button -->
+<div class="rsvp-btn">
+  <form action="/event/{{id}}/rsvp" method="POST">
+    <button type="submit" class="btn btn-primary btn-dark homepage-btn">RSVP</button>
+  </form>
+</div>
+{{/if}}
 
 <!-- Google Map API -->
 <script>
   function initMap() {
-    // Center coordinates (adjust as needed)
     var center = { lat: {{venue.latitude}}, lng: {{venue.longitude}} };
 
-    // Create a new map
     var map = new google.maps.Map(document.getElementById('map'), {
       zoom: 15, // Adjust the zoom level as needed
       center: center
     });
 
-    // Add markers or other features as needed
-    // For example:
     var marker = new google.maps.Marker({
       position: center,
       map: map,
       title: 'My Location'
     });
   }
+  var head = document.getElementsByTagName('head')[0];
+  var insertBefore = head.insertBefore;
+  head.insertBefore = function (newElement, referenceElement) {
+    if (newElement.href && newElement.href.indexOf('https://fonts.googleapis.com/css?family=Roboto') === 0) {
+      return;
+    }
+    insertBefore.call(head, newElement, referenceElement);
+  };
 </script>
 
 <script src={{map_string}}></script>
@@ -129,5 +133,4 @@
     </div>
   </div>
 
-</body>
 <script src="./js/autocomplete.js"></script>  --}}
