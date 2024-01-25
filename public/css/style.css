@@ -189,9 +189,13 @@
   }
 
   .welcome-banner {
-    background-image: url("../images/lights-fotor-20240123185123.jpg");
-    background-size: cover;
+    background-image: url("../images/profile-banner.jpg");
     height: 40vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-size: cover;
+    background-position: 0% 85%;
   }
 
   .events-banner {
@@ -236,6 +240,12 @@
     padding: 1vh 0.3vh;
   }
   
+  #event-description {
+    color: #1e1e1e;
+    padding: 0.3vh 0.7vh;
+    height: 9vh;
+  }
+
   .event-holder {
     margin: 5vh 5vh 1vh 5vh;
   }
