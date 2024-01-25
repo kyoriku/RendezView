@@ -199,9 +199,13 @@
   }
 
   .events-banner {
+    height: 40vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-image: url("../images/event-banner.jpg");
     background-size: cover;
-    height: 40vh;
+    background-position: 0% 85%;
   }
 
   .indv-banner {
@@ -209,7 +213,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: url(../images/events-banner-new.jpg);
+    background-image: url("../images/events-banner-new.jpg");
     background-size: cover;
     background-position: 0% 85%;
   }
