@@ -236,6 +236,12 @@
     padding: 1vh 0.3vh;
   }
   
+  #event-description {
+    color: #1e1e1e;
+    padding: 0.3vh 0.7vh;
+    height: 9vh;
+  }
+
   .event-holder {
     margin: 5vh 5vh 1vh 5vh;
   }
