@@ -1,4 +1,3 @@
-<body onload="initMap()">
 
   {{!-- All events page --}}
   {{#if events.length}}
@@ -82,6 +81,14 @@
       title: 'My Location'
     });
   }
+  var head = document.getElementsByTagName('head')[0];
+  var insertBefore = head.insertBefore;
+  head.insertBefore = function (newElement, referenceElement) {
+    if (newElement.href && newElement.href.indexOf('https://fonts.googleapis.com/css?family=Roboto') === 0) {
+      return;
+    }
+    insertBefore.call(head, newElement, referenceElement);
+  };
 </script>
 
 <script src={{map_string}}></script>
@@ -129,5 +136,5 @@
     </div>
   </div>
 
-</body>
+
 <script src="./js/autocomplete.js"></script>  --}}
