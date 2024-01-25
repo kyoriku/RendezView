@@ -322,3 +322,13 @@
     align-items: center;
     padding: 3vh 0vh 1vh 0vh;
   }
+
+  .edit-event-header {
+    height: 40vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url(../images/concert_02.png);
+    background-size: cover;
+    background-position: 0% 85%;
+  }
