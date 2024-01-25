@@ -48,7 +48,6 @@ router.get('/events', async (req, res) => {
     res.render('event', {
       events,
       logged_in: req.session.logged_in,
-      showDetails: false,
     });
   } catch (err) {
     // Handle internal server error
@@ -75,10 +74,9 @@ router.get("/event/:id", withAuth, async (req, res) => {
     const event = eventData.get({ plain: true });
     const map_string = process.env.MAP_STRING;
     // Render individual event page with event details, login status, and details visibility
-    res.render('event', {
+    res.render('event-details', {
       ...event,
       logged_in: req.session.logged_in,
-      showDetails: true,
       map_string: map_string,
     });
   } catch (err) {
