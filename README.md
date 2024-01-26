@@ -1,5 +1,5 @@
-<br />
-<div align="center">
+
+<div id="readme-top" align="center">
     <a href="https://github.com/kyoriku/party-planner"><img src="./public/images/calendar-icon.png" alt="Logo" width="80" height="80"></a>
     <h3 align="center">Party Planner App</h3>
 
