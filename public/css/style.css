@@ -255,7 +255,7 @@
   }
 
   .event-holder {
-    margin: 5vh 5vh 1vh 5vh;
+    margin: 5vh;
   }
 
   .rsvp-btn {
@@ -287,11 +287,6 @@
 
   ul {
     padding: 0vh;
-  }
-
-  .gm {
-    width: 100%;
-    height: 80%;
   }
 
   .myevents-list {
