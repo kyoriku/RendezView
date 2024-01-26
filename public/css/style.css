@@ -351,3 +351,7 @@
     height: 350px; /* Set the height as needed */
     border: 1px solid #ccc; /* Add a border or other styling if desired */
   }
+
+  .row-fluid {
+    flex-wrap: wrap;
+  }
