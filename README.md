@@ -1,7 +1,7 @@
 
 <div id="readme-top" align="center">
-    <a href="https://github.com/kyoriku/party-planner"><img src="./public/images/calendar-icon.png" alt="Logo" width="80" height="80"></a>
-    <h3 align="center">Party Planner App</h3>
+    <a href="https://github.com/kyoriku/RendezView"><img src="./public/images/calendar-icon.png" alt="Logo" width="80" height="80"></a>
+    <h3 align="center">RendezView</h3>
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
@@ -138,7 +138,7 @@ Developers:
     - Github Username: tchan128
     - Email: tchan12899@gmail.com
 
-- Main Github Repo: https://github.com/kyoriku/party-planner
+- Main Github Repo: https://github.com/kyoriku/RendezView
 - Deployed Work on Heroku: 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
