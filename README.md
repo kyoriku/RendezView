@@ -1,7 +1,6 @@
-<br />
-<div align="center">
-    <a href="https://github.com/kyoriku/party-planner"><img src="./public/images/calendar-icon.png" alt="Logo" width="80" height="80"></a>
-    <h3 align="center">Party Planner App</h3>
+<div id="readme-top" align="center">
+    <a href="https://github.com/kyoriku/RendezView"><img src="./public/images/calendar-icon.png" alt="Logo" width="80" height="80"></a>
+    <h3 align="center">RendezView</h3>
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
@@ -66,6 +65,11 @@ Users are able to create their own profile to RSVP and create their own events. 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## Visuals
+<img width="1280" alt="rendezview-homepage" src="https://github.com/kyoriku/RendezView/assets/145511725/0560c437-0041-401d-a62b-33b9f3a2a4ee">
+<img width="1280" alt="rendezview-events" src="https://github.com/kyoriku/RendezView/assets/145511725/55ff9a98-c5ef-4ffa-8590-710a9614bfb1">
+<img width="1280" alt="rendezview-eventdetails" src="https://github.com/kyoriku/RendezView/assets/145511725/4bd0dc00-9932-4a85-b44b-d3d1f1375f61">
+<img width="1280" alt="rendezview-profile" src="https://github.com/kyoriku/RendezView/assets/145511725/41b340c6-8c8b-40f3-a187-36e8f71177bb">
+<img width="1280" alt="rendezview-editevent" src="https://github.com/kyoriku/RendezView/assets/145511725/08e4904d-fa69-4971-a4f2-7e5456cbb909">
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -73,7 +77,7 @@ Users are able to create their own profile to RSVP and create their own events. 
 
 In addition to that, some websites that helped with the build of this party planning app include:
 
-- 
+- [Prevent Google Maps from loading the Roboto font](https://gist.github.com/boffey/8516b0091649161cb09e244d63076256)
 
 Here are the templates/icons used in the README file:
 
@@ -138,7 +142,7 @@ Developers:
     - Github Username: tchan128
     - Email: tchan12899@gmail.com
 
-- Main Github Repo: https://github.com/kyoriku/party-planner
-- Deployed Work on Heroku: 
+- Main Github Repo: https://github.com/kyoriku/RendezView
+- Deployed Work on Heroku: https://rendezviews-6983bdd1f9ce.herokuapp.com
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
