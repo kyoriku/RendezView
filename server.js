@@ -22,7 +22,7 @@ const hbs = exphbs.create({ helpers });
 const sess = {
   secret: process.env.SESSION_SECRET, // Secret key for session encryption
   cookie: {
-    maxAge: 86400000, // Session expiration time in milliseconds (5 minutes)
+    maxAge: 3600000, // Session expiration time in milliseconds (1 hour)
     httpOnly: true, // Session cookie is not accessible via client-side JavaScript
     secure: false, // Only send the cookie over HTTPS if secure is set to true
     sameSite: 'strict', // Cookie is only sent in a first-party context
