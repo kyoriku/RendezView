@@ -1,0 +1,73 @@
+@media screen and (max-width: 1246px) {
+  .update-btn {
+    margin-bottom: 4px
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .update-btn {
+    margin-bottom: 0;
+  }
+
+  .create-btn {
+    margin-bottom: 16px;
+  }
+}
+
+@media screen and (max-width: 575px) {
+  .event-container {
+    margin: 12px 0 0 0;
+  }
+
+  .my-event-container {
+    margin: 12px 0 0 0;
+  }
+
+  .event-card {
+    margin-bottom: -12px;
+  }
+
+  .upcoming-text {
+    font-size: 3em;
+  }
+
+  .offset-3 {
+    margin-left: 0;
+  }
+
+  .form-group textarea {
+    height: 135px;
+  }
+
+  .upcoming-text {
+    margin: 8px;
+  }
+
+  .login-container, .signup-container {
+    width: 75vw;
+  }
+
+  .header-two {
+    margin-top: 12px !important;
+  }
+
+  .rsvp-btn, .cancel-rsvp-btn {
+    margin-bottom: 16px !important;
+  }
+
+  .google-map {
+    margin-bottom: 40px !important;
+  }
+
+  .footer p {
+    text-align: center !important;
+  }
+
+  .edit-event-form {
+    margin: 36px !important;
+  }
+
+  .create-btn {
+    margin-bottom: 16px;
+  }
+}

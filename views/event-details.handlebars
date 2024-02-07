@@ -1,50 +1,60 @@
-{{!-- Event details - individual event page --}}
-
-{{!-- Welcome banner with image --}}
+<!-- Welcome banner with image and username -->
 <div class="indv-banner">
-  <div>
-    <h1 class="upcoming-text">{{name}}</h1>
-  </div>
+  <h1 class="upcoming-text text-center">{{name}}</h1>
 </div>
-{{!-- Google Map & Info --}}
-<div class="row mb-2 event-holder">
-  <div class="col-md-4">
+<!-- Google Map & Info -->
+<div class="row mx-4 mt-4 event-holder">
+  <!-- Google Map (Order 1 on medium and larger screens, Order 3 on small screens) -->
+  <div class="col-md-4 order-md-1 order-3 google-map my-3 d-flex justify-content-center">
     <div id="map"></div>
   </div>
-  <div class="col-md-8">
+  <!-- Event details column (Order 2 on medium and larger screens, Order 1 on small screens) -->
+  <div class="col-md-8 order-md-2 order-1 mt-2">
     <!-- Event details -->
     <div>
       <p class="event-head">{{description}}</p>
-      <p class="event-head"><span>Date:</span> {{format_date date}} {{format_time date}}</p>
+      <p class="event-head"><span>Date:</span> {{format_date date}} <span>-</span> {{format_time date}}</p>
       <p class="event-head"><span>Venue:</span> {{venue.name}}</p>
+      <p class="event-head"><span>Hosted by:</span> {{user.username}}
     </div>
-    {{!-- List of Attendees --}}
-    <div class="row mb-12 attendee-header">
-      <p class="event-head"><span>Attendees:</span>
-      <p>
+    <!-- List of Attendees -->
+    <div class="row attendee-header">
+      <p class="event-head"><span>Attendees:</span></p>
     </div>
-    <div class="row mb-12 attendee-list"></div>
+    <div class="row attendee-list"></div>
     <ul>
       {{#each rsvps}}
-      <li class="attendee">{{user.username}}</li>
+      <li class="attendee py-1 px-2">{{user.username}}</li>
       {{/each}}
     </ul>
   </div>
+  <!-- RSVP & Cancel RSVP buttons column (Order 3 on medium and larger screens, Order 2 on small screens) -->
+  <div class="col-md-12 order-md-3 order-2 mt-3">
+    <!-- RSVP button -->
+    {{#unless hasRSVP}}
+    <div class="rsvp-btn text-center">
+      <form action="/event/{{id}}/rsvp">
+        <button type="submit" class="btn btn-dark homepage-btn">RSVP</button>
+      </form>
+    </div>
+    {{/unless}}
+    <!-- Cancel RSVP button -->
+    {{#if hasRSVP}}
+    <div class="cancel-rsvp-btn text-center">
+      <form action="/event/{{id}}/cancel-rsvp">
+        <button type="submit" class="btn btn-dark homepage-btn">Cancel RSVP</button>
+      </form>
+    </div>
+    {{/if}}
+  </div>
 </div>
-<!-- RSVP button -->
-<div class="rsvp-btn">
-  <form action="/event/{{id}}/rsvp" method="POST">
-    <button type="submit" class="btn btn-primary btn-dark homepage-btn">RSVP</button>
-  </form>
-</div>
-
 <!-- Google Map API -->
 <script>
   function initMap() {
     var center = { lat: {{venue.latitude}}, lng: {{venue.longitude}} };
 
     var map = new google.maps.Map(document.getElementById('map'), {
-      zoom: 15, // Adjust the zoom level as needed
+      zoom: 15, 
       center: center
     });
 
@@ -54,6 +64,7 @@
       title: 'My Location'
     });
   }
+  // Prevent Google Maps from loading the Roboto font
   var head = document.getElementsByTagName('head')[0];
   var insertBefore = head.insertBefore;
   head.insertBefore = function (newElement, referenceElement) {
@@ -63,5 +74,6 @@
     insertBefore.call(head, newElement, referenceElement);
   };
 </script>
-
 <script src={{map_string}}></script>
+<!-- JavaScript file for handling the RSVPfunctionality -->
+<script src="/js/rsvp.js"></script>

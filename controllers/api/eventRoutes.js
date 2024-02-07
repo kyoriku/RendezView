@@ -1,6 +1,6 @@
 // Importing necessary modules and dependencies
 const router = require(`express`).Router();
-const { Event } = require(`../../models`);
+const { Event, Rsvp } = require(`../../models`);
 const withAuth = require(`../../utils/auth`);
 
 // Route to get all events when the "Events" tab is pressed; accessible to all users
@@ -94,6 +94,59 @@ router.delete(`/:id`, withAuth, async (req, res) => {
   } catch (err) {
     // Handle errors by logging and sending a 500 status with an error message
     console.error(err);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+});
+
+// RSVP button
+router.post('/:id/rsvp', withAuth, async (req, res) => {
+  try {
+    // Fetch the event for which RSVP is requested
+    const event = await Event.findByPk(req.params.id);
+
+    // Check if the user has already RSVP'd for the event
+    const existingRSVP = await Rsvp.findOne({
+      where: {
+        user_id: req.session.user_id,
+        event_id: event.id,
+      },
+    });
+
+    if (existingRSVP) {
+      // Redirect if user has already RSVP'd
+      res.redirect(`/event/${event.id}`);
+    } else {
+      // Create a new RSVP and redirect
+      const rsvp = await Rsvp.create({
+        user_id: req.session.user_id,
+        event_id: event.id,
+      });
+
+      res.redirect(`/event/${event.id}`);
+    }
+  } catch (err) {
+    // Handle internal server error
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+});
+
+// Cancel RSVP button
+router.post('/:id/cancel-rsvp', withAuth, async (req, res) => {
+  try {
+    // Fetch the event for which RSVP removal is requested
+    const event = await Event.findByPk(req.params.id);
+
+    // Find and delete the RSVP record
+    await Rsvp.destroy({
+      where: {
+        user_id: req.session.user_id,
+        event_id: event.id,
+      },
+    });
+
+    res.redirect(`/event/${event.id}`);
+  } catch (err) {
+    // Handle internal server error
     res.status(500).json({ error: 'Internal Server Error' });
   }
 });

@@ -73,25 +73,8 @@ router.get("/event/:id", withAuth, async (req, res) => {
     // Convert Sequelize instance to plain object for rendering
     const event = eventData.get({ plain: true });
     const map_string = process.env.MAP_STRING;
-    // Render individual event page with event details, login status, and details visibility
-    res.render('event-details', {
-      ...event,
-      logged_in: req.session.logged_in,
-      map_string: map_string,
-    });
-  } catch (err) {
-    // Handle internal server error
-    res.status(500).json({ error: 'Internal Server Error' });
-  }
-});
-
-// RSVP button
-router.post('/event/:id/rsvp', withAuth, async (req, res) => {
-  try {
-    // Fetch the event for which RSVP is requested
-    const event = await Event.findByPk(req.params.id);
-
-    // Check if the user has already RSVP'd for the event
+    
+    // Check if the user has RSVP'd for the event
     const existingRSVP = await Rsvp.findOne({
       where: {
         user_id: req.session.user_id,
@@ -99,18 +82,13 @@ router.post('/event/:id/rsvp', withAuth, async (req, res) => {
       },
     });
 
-    if (existingRSVP) {
-      // Redirect if user has already RSVP'd
-      res.redirect(`/event/${event.id}`);
-    } else {
-      // Create a new RSVP and redirect
-      const rsvp = await Rsvp.create({
-        user_id: req.session.user_id,
-        event_id: event.id,
-      });
-
-      res.redirect(`/event/${event.id}`);
-    }
+    // Render individual event page with event details, login status, details visibility, and RSVP status
+    res.render('event-details', {
+      ...event,
+      logged_in: req.session.logged_in,
+      map_string: map_string,
+      hasRSVP: !!existingRSVP,
+    });
   } catch (err) {
     // Handle internal server error
     res.status(500).json({ error: 'Internal Server Error' });
@@ -118,7 +96,7 @@ router.post('/event/:id/rsvp', withAuth, async (req, res) => {
 });
 
 // My Events Page
-router.get('/myevents', withAuth, async (req, res) => {
+router.get('/my-events', withAuth, async (req, res) => {
   try {
     // Fetch events for which the user has RSVP'd
     const rsvpEventData = await Rsvp.findAll({
@@ -144,7 +122,7 @@ router.get('/myevents', withAuth, async (req, res) => {
     const createdEvents = createdEventData.map((event) => event.get({ plain: true }));
 
     // Render myevents page with RSVP and created events, and login status
-    res.render('myevents', {
+    res.render('my-events', {
       rsvpEvents,
       createdEvents,
       logged_in: req.session.logged_in,

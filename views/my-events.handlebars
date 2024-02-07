@@ -1,0 +1,56 @@
+<div class="myevents-header">
+  <h1 class="upcoming-text text-center">My Events</h1>
+</div>
+<!-- Events the user is RSVP'd to -->
+<h2 class="header-two text-center mt-4">RSVP'd Events</h2>
+{{#if rsvpEvents.length}}
+<div class="row my-event-container">
+  {{#each rsvpEvents}}
+  <!-- Individual event card -->
+  <div class="col-md-4 mb-4">
+    <div class="card event-card">
+      <!-- Link to the specific event page -->
+      <a href="/event/{{this.id}}" class="text-decoration-none">
+        <div class="card-body">
+          <!-- Event name -->
+          <h4 class="card-title event-name">{{this.name}}</h4>
+          <!-- Event host -->
+          <p class="card-text"><span class="event-name">Hosted by:</span> {{this.user.username}}</p>
+          <!-- Event description -->
+          <p class="card-text">{{this.description}}</p>
+        </div>
+      </a>
+    </div>
+  </div>
+  {{/each}}
+</div>
+{{else}}
+<p class="text-center m-4">No RSVP'd events</p>
+{{/if}}
+<!-- Events the user has created -->
+<h2 class="text-center">Created Events</h2>
+{{#if createdEvents.length}}
+<div class="row my-event-container">
+  {{#each createdEvents}}
+  <!-- Individual event card -->
+  <div class="col-md-4 mb-4">
+    <div class="card event-card">
+      <!-- Link to the specific event page -->
+      <a href="/event/{{this.id}}" class="text-decoration-none">
+        <div class="card-body">
+          <!-- Event name -->
+          <h4 class="card-title event-name">{{this.name}}</h4>
+          <!-- Event host -->
+          <p class="card-text"><span>Hosted by:</span> {{this.user.username}}</p>
+          <!-- Event description -->
+          <p class="card-text">{{this.description}}</p>
+
+        </div>
+      </a>
+    </div>
+  </div>
+  {{/each}}
+</div>
+{{else}}
+<p class="text-center m-4">No created events</p>
+{{/if}}
