@@ -1,357 +1,272 @@
 * {
-    color: #f5f5f5;
-    font-family: 'Roboto', sans-serif;
-  }
-  
-  @keyframes slideAndFade {
-    from {
-      opacity: 0;
-      transform: translateY(-100px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-  
-  /* Apply the keyframe to your element */
-  .fade-in {
-    animation: slideAndFade 1.3s ease-out; /* Adjust the duration and timing function as needed */
-  }
-  
-  
-  body {
-    background-color:#424242;
-    height: 90vh;
-  }
-  
-  input {
-    color: black;
-  }
-  
-  .intro-text {
-    width: 60vw;
-    height: 50vh;
-    padding: 20vh 0vw 0vh 7vw;
-  }
-  
-  #logout:hover {
-    color: lightgrey;
-    cursor: pointer;
-  }
-  
-  #logout {
-    color: rgb(167, 162, 131);
-    cursor: pointer;
-  }
-  
-  .intro-heading {
-    font-weight: 300;
-    text-wrap: balance;
-    width: 40vw;
-  }
-  
-  .intro-slogan {
-    width: 40vw;
-    font-size: smaller;
-    text-indent: 0.25vw;
-    padding: 2vh 0vh 0vh 0vh;
-  }
-  
-  .intro-message {
-    font-size: larger;
-    padding: 2vh 0vh 0vh 0.25vh;
-    width: 100%;
-    text-wrap: balance;
-  }
-  
-  .homepage-btn, .update-btn, .delete-btn, .edit-btn {
-    background-color: #5d5c5c;
-  }
-  
-  .homepage {
-    background-image: url("../images/pexels-cottonbro-studio-3171837.jpg");
-    background-size: cover;
-    height: 90vh;
-  }
-  
-  .navbar {
-    display: flex;
-    justify-content: space-between;
-    background-color: #1e1e1e;
-    height: 10vh;
-  }
-  
-  .navbar-brand {
-    color: rgb(167, 162, 131);
-  }
-  
-  .no-button {
-    background: none;
-    border: none;
-    padding: 0;
-    cursor: pointer;
-    color: #1b89bc;
-    text-decoration: none;
-    font-size: 100%;
-  }
-  
-  .navbar-nav {
-    display: flex;
-    flex-direction: row;
-  }
-  
-  .nav-item {
-    margin: 0vw 1vw 0vw 1vw;
-    color: rgba(167, 162, 131);
-  }
-  
-  .nav-item:hover {
-    color: lightgrey;
-  }
-  
-  .no-button:hover {
-    color: #065b83;
-    text-decoration: underline;
-  }
-  
-  .dollar-amount {
-    color: #056605;
-    font-weight: bold;
-    margin-left: -5px;
-  }
-  
-  #pac-input {
-    width: 50vw;
-  }
-  
-  /*------------login page------------*/
-  
-  .login-main {
-    background-color: #424242;
-    display: flex;
-    justify-content: center;
-    padding: 0vh 0vh 10vh 0vh;
-    height: 90vh;
-     background-image: url(../images/pexels-rachel-claire-4577408.jpg); 
-     background-size: cover;
-     background-position: 30% 70%;
-  }
-  
-  .login {
-    padding: 3vh 6vh 3vh 3vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
-  
-  .signup {
-    padding: 3vh 3vh 3vh 6vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin: 5vh 0vh 5vh 0vh;
-  }
-  
-  input {
-    background-color: #f5f5f5;
-    border: none;
-    padding: 0.75vh;
-  }
-  /*------------footer------------*/
-  footer {
-    height: 10vh;
-    background-color: #1e1e1e;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  /*------------event------------*/
-  .event {
-    height: 90vh;
+  color: #f5f5f5;
+  font-family: 'Roboto', sans-serif;
+}
+
+@keyframes slideAndFade {
+  from {
+    opacity: 0;
+    transform: translateY(-100px);
   }
 
-  .profile-events {
-    padding-top: 2vh;
-    padding-bottom: 2vh;
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: slideAndFade 1.3s ease-out;
+}
+
+body {
+  background-color: #424242;
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0;
+}
+
+.intro-text {
+  width: 60vw;
+  height: 50vh;
+  padding: 20vh 0vw 0vh 7vw;
+}
+
+.intro-heading {
+  font-weight: 300;
+  text-wrap: balance;
+  width: 40vw;
+}
+
+.intro-slogan {
+  width: 40vw;
+  font-size: smaller;
+  text-indent: 0.25vw;
+  padding: 2vh 0vh 0vh 0vh;
+}
+
+.intro-message {
+  font-size: larger;
+  padding: 2vh 0vh 0vh 0.25vh;
+  width: 100%;
+  text-wrap: balance;
+}
+
+.homepage-btn, .update-btn, .delete-btn, .edit-btn, .create-btn {
+  background-color: #5d5c5c;
+}
+
+.update-btn, .delete-btn, .edit-btn, .create-btn {
+  width: 86px;
+}
+
+.homepage {
+  background-image: url("../images/pexels-cottonbro-studio-3171837.jpg");
+  background-size: cover;
+  height: 95vh;
+}
+
+.navbar, footer {
+  background-color: #1e1e1e;
+}
+
+.navbar-brand, .nav-link, .event-name, span {
+  color: rgb(167, 162, 131);
+}
+
+.nav-item {
+  margin: 0vw 0.5vw;
+  color: rgba(167, 162, 131);
+}
+
+.nav-item:hover {
+  color: lightgrey;
+}
+
+/* ----- Login Page ----- */
+.login-main {
+  background-color: #424242;
+  display: flex;
+  justify-content: center;
+  height: 90vh;
+  background-image: url(../images/pexels-rachel-claire-4577408.jpg);
+  background-size: cover;
+  background-position: 30% 70%;
+}
+
+.login, .signup {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* ----- Footer ----- */
+.footer {
+  padding: 0px;
+  margin: 2px;
+  text-align: center;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+}
+
+/* ----- Event ----- */
+.event {
+  height: 90vh;
+}
+
+.profile-event-name {
+  color: rgba(167, 162, 131);
+  text-decoration: none;
+}
+
+.welcome-banner {
+  background-image: url("../images/profile-banner.jpg");
+  height: 40vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-size: cover;
+  background-position: 0% 85%;
+}
+
+.events-banner {
+  height: 40vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url("../images/event-banner.jpg");
+  background-size: cover;
+  background-position: 0% 85%;
+}
+
+.indv-banner {
+  height: 40vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url("../images/events-banner-new.jpg");
+  background-size: cover;
+  background-position: 0% 85%;
+}
+
+.upcoming-text {
+  font-size: 5rem;
+  font-weight: bold;
+}
+
+.event-card, .event-info {
+  background-color: #1e1e1e;
+  height: 14.5rem;
+  overflow: auto;
+}
+
+.event-card:hover {
+  border: 1px solid rgb(167, 162, 131);
+}
+
+#event-venue, #event-description {
+  color: #1e1e1e;
+}
+
+.event-head {
+  font-size: 20px;
+}
+
+.attendee {
+  list-style-type: none;
+  background-color: #1e1e1e;
+  margin: 0 0.125vh;
+  display: inline-block;
+}
+
+.attendee-header, .attendee-header h4 {
+  width: 100%;
+  color: rgb(167, 162, 131);
+}
+
+.attendee:first-child {
+  margin-left: 0;
+}
+
+.myevents-header {
+  height: 40vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url(../images/pexels-abby-kihano-431722.jpg);
+  background-size: cover;
+  background-position: 0% 85%;
+}
+
+.edit-event-header {
+  height: 40vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url(../images/concert_02.png);
+  background-size: cover;
+  background-position: 0% 85%;
+}
+
+#map {
+  width: 350px;
+  height: 350px;
+}
+
+.row-fluid {
+  flex-wrap: wrap;
+}
+
+/* ----- Loading spinner ----- */
+.spinner {
+  display: none;
+  border: 4px solid rgba(0, 0, 0, 0.1);
+  border-top: 4px solid #ffffff;
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+  animation: spin 1s linear infinite;
+  margin-left: 5px;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
   }
 
-  .profile-event-name {
-    color: rgba(167, 162, 131);
+  100% {
+    transform: rotate(360deg);
   }
+}
 
-  .create-event {
-    padding-left: 10vh;
-  }
+.main {
+  flex: 1;
+}
 
-  .event-input {
-    width: 100%;
-  }
+.event-container, .my-event-container {
+  margin: 24px 12px 0 12px;
+}
 
-  .welcome-banner {
-    background-image: url("../images/profile-banner.jpg");
-    height: 40vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-size: cover;
-    background-position: 0% 85%;
-  }
+ul {
+  padding-left: 0;
+}
 
-  .events-banner {
-    height: 40vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-image: url("../images/event-banner.jpg");
-    background-size: cover;
-    background-position: 0% 85%;
-  }
+.rsvp-btn, .cancel-rsvp-btn {
+  margin-bottom: 36px;
+}
 
-  .indv-banner {
-    height: 40vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-image: url("../images/events-banner-new.jpg");
-    background-size: cover;
-    background-position: 0% 85%;
-  }
+.homepage-btn:hover, .update-btn:hover, .delete-btn:hover, .edit-btn:hover {
+  background-color: #1e1e1e;
+  border: 1px solid rgb(167, 162, 131);
+}
 
-  .upcoming-text {
-    text-align: center;
-    padding: 15vh 0vh;
-    font-size: 100px;
-    opacity: 100%;
-  }
+.profile-event-name:hover {
+  text-decoration: underline;
+}
 
-  a:hover {
-    text-decoration: none;
-  }
-
-  .event-card , .event-info {
-    background-color: #1e1e1e;
-    padding: 2vh;
-    margin: 1.5vh 0vh;
-  }
-
-  .event-card:hover {
-    border: 2px solid rgb(167, 162, 131);
-  }
-
-  .event-name {
-    color: rgba(167, 162, 131);
-  }
-
-  #event-venue {
-    color: #1e1e1e;
-    padding: 1vh 0.3vh;
-  }
-  
-  #event-description {
-    color: #1e1e1e;
-    padding: 0.3vh 0.7vh;
-    height: 9vh;
-  }
-
-  .event-holder {
-    margin: 5vh;
-  }
-
-  .rsvp-btn {
-    text-align: center;
-    margin: 2.5vh 0vh;
-  }
-
-  .event-head {
-    font-size: 20px;
-  }
-
-  span {
-    color: rgb(167, 162, 131);
-  }
-
-  .attendee {
-    list-style-type: none;
-    background-color: #1e1e1e;
-    padding: 1vh;
-    margin: 0.5vh 0.2vh;
-    display: inline-block;
-  }
-
-  .attendee-header, .attendee-header h4 {
-    width: 100%;
-    color:rgb(167, 162, 131);
-    margin-left: 0vh;
-  }
-
-  ul {
-    padding: 0vh;
-  }
-
-  .myevents-list {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    list-style: none;
-  }
-
-  #myevents-card {
-    margin: 2vh;
-    font-size: 20px;
-  }
-
-  .myevents-header {
-    height: 40vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-image: url(../images/pexels-abby-kihano-431722.jpg);
-    background-size: cover;
-    background-position: 0% 85%;
-  }
-
-  .myevents-header-text {
-    font-size: 100px;
-  }
-
-  .myevents-card-title {
-    color: rgba(167, 162, 131);
-    font-size: larger;
-  }
-
-  .myevents-card-description {
-    font-size: smaller;
-    padding: 1vh 0vh 1vh 0vh;
-  }
-
-  #myevents-card-host {
-    padding: 0;
-    margin: 0;
-  }
-
-  .myevents-subheading {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 0vh 0vh 1vh 0vh;
-  }
-
-  .edit-event-header {
-    height: 40vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-image: url(../images/concert_02.png);
-    background-size: cover;
-    background-position: 0% 85%;
-  }
-
-  #map {
-    width: 350px; /* Set the width as needed */
-    height: 350px; /* Set the height as needed */
-    border: 1px solid #ccc; /* Add a border or other styling if desired */
-  }
-
-  .row-fluid {
-    flex-wrap: wrap;
-  }
+.event-list {
+  margin-bottom: 12px;
+}

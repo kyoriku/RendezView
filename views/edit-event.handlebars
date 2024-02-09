@@ -1,46 +1,43 @@
 <div class="edit-event-header">
   <div>
-    <h1 class="upcoming-text">Edit Event</h1>
+    <h1 class="upcoming-text text-center">Edit Event</h1>
   </div>
 </div>
-<!-- Container for the form to edit an event -->
-<div class="mt-4 d-flex align-items-center justify-content-center">
-  <!-- Form for editing an event -->
-  <form class="form col-md-6 edit-event-form">
-    <!-- Form field for the event name -->
-    <div class="form-group">
-      <label for="event-name">Event name:</label>
-      <input class="form-input event-input" type="text" id="event-name" name="event-name" />
-    </div>
-    <!-- Form field for the event description with a maximum length of 250 characters -->
-    <div class="form-group">
-      <label for="event-description">Description:</label>
-      <textarea maxlength="250" class="form-input event-input" type="text" id="event-description"
-        name="event-description" placeholder="Max 250 characters"></textarea>
-    </div>
-    <!-- Form field for the event date in a datetime-local input format -->
-    <div class="form-group">
-      <label for="event-date">Date:</label>
-      <input class="form-input event-input" type="datetime-local" id="event-date" name="event-date" />
-    </div>
-    <!-- Form field for selecting the event venue from a dropdown menu -->
-    <div class="form-group">
-      <label for="event-venue">Venue:</label>
-      <select class="form-input event-input" id="event-venue" name="event-venue">
-        {{#each venues as |venue|}}
-        <!-- Option for each venue with its id as the value and name as the display text -->
-        <option value='{{venue.id}}'>{{venue.name}}</option>
-        {{/each}}
-      </select>
-    </div>
-    <br>
-    <!-- Form submission button with data attributes for the event ID -->
-    <div class="form-group">
-      <button type="submit" class="btn btn-primary btn-dark edit-btn" data-id="{{event.id}}"
-        id="updateEventButton">Update</button>
-    </div>
-  </form>
-</div>
+<!-- Form for editing an event -->
+<form class="form col-md-6 edit-event-form mx-md-auto m-4">
+  <!-- Form field for the event name -->
+  <div class="form-group mb-2">
+    <label for="event-name" class="form-label">Event name:</label>
+    <input class="form-control event-input" type="text" id="event-name" name="event-name" />
+  </div>
+  <!-- Form field for the event description with a maximum length of 250 characters -->
+  <div class="form-group mb-2">
+    <label for="event-description" class="form-label">Description:</label>
+    <textarea maxlength="250" class="form-control event-input" type="text" id="event-description"
+      name="event-description" rows="3" placeholder="Max 250 characters"></textarea>
+  </div>
+  <!-- Form field for the event date in a datetime-local input format -->
+  <div class="form-group mb-2">
+    <label for="event-date" class="form-label">Date:</label>
+    <input class="form-control event-input" type="datetime-local" id="event-date" name="event-date" />
+  </div>
+  <!-- Form field for selecting the event venue from a dropdown menu -->
+  <div class="form-group mb-2">
+    <label for="event-venue" class="form-label">Venue:</label>
+    <select class="form-control event-input" id="event-venue" name="event-venue">
+      {{#each venues as |venue|}}
+      <!-- Option for each venue with its id as the value and name as the display text -->
+      <option value='{{venue.id}}'>{{venue.name}}</option>
+      {{/each}}
+    </select>
+  </div>
+  <!-- Form submission button with data attributes for the event ID -->
+  <div class="form-group mt-3">
+    <button type="submit" class="btn btn-primary btn-dark edit-btn" data-id="{{event.id}}"
+      id="updateEventButton">Update</button>
+  </div>
+</form>
 
-<!-- Include external JavaScript file for handling the edit event functionality -->
-<script src="/js/editEvent.js"></script>
+<!-- JavaScript file for handling the edit event functionality -->
+<script src="/js/edit-event.js"></script>
+

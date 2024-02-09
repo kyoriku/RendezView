@@ -1,22 +1,33 @@
-{{!-- All events page --}}
-{{#if events.length}}
+<!-- Display the banner for upcoming events -->
 <div class="events-banner">
   <div>
-    <h1 class="upcoming-text">Upcoming Events</h1>
+    <h1 class="upcoming-text text-center">Upcoming Events</h1>
   </div>
 </div>
-{{!-- {{#if events.length}} --}}
-<div class="row gx-2 event-list event-holder">
+<!-- Display the list of events in a row layout -->
+{{#if events.length}}
+<div class="row event-container">
   {{#each events as |event|}}
-  <div class="col-md-4">
-    <div class="event-card">
-      <a href="/event/{{event.id}}">
-        <h4 class="event-name">{{event.name}}</h4>
-        <p>{{event.description}}</p>
-        <p>Date: {{format_date event.date}} {{format_time event.date}}</p>
+  <!-- Individual event card -->
+  <div class="col-md-4 mb-4">
+    <div class="card event-card">
+      <!-- Link to the specific event page -->
+      <a href="/event/{{event.id}}" class="text-decoration-none">
+        <div class="card-body">
+          <!-- Event name -->
+          <h4 class="card-title event-name">{{event.name}}</h4>
+          <!-- Event date and time -->
+          <p class="card-text"><span class="event-name">Date:</span> {{format_date event.date}} <span>-</span> {{format_time
+            event.date}}</p>
+          <!-- Event description -->
+          <p class="card-text">{{event.description}}</p>
+        </div>
       </a>
     </div>
   </div>
   {{/each}}
 </div>
+{{else}}
+<!-- Display a message when there are no upcoming events -->
+<p class="text-center m-4">No events available.</p>
 {{/if}}

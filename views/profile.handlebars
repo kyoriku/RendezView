@@ -1,60 +1,59 @@
-<div class="welcome-banner">    
+<div class="welcome-banner">
   <div>
-    <h1 class="upcoming-text">Welcome, {{username}}!</h1>
+    <h1 class="upcoming-text text-center">Welcome, {{username}}!</h1>
   </div>
 </div>
 <div class="event-holder">
-  <div class="row mt-4 profile-events">
-    <div class="col-md-6 create-event">
-      <h3>Create a New Event:</h3>
-      <br>
+  <div class="row m-4 profile-events">
+    <div class="col-md-6 mt-2 create-event">
+      <h3 class="mb-4">Create a New Event:</h3>
       <form class="form new-event-form">
-        <div class="form-group">
-          <label for="event-name">Event name:</label>
-          <input class="form-input event-input" type="text" id="event-name" name="event-name" />
+        <div class="mb-2">
+          <label for="event-name" class="form-label">Event name:</label>
+          <input class="form-control event-input" type="text" id="event-name" name="event-name" maxlength="50" placeholder="Max 50 characters"/>
         </div>
-        <div class="form-group">
-          <label for="event-description">Description:</label>
-          <textarea maxlength="250" class="form-input event-input" type="text" id="event-description" name="event-description" placeholder="Max 250 characters"></textarea>
+        <div class="form-group mb-2">
+          <label for="event-description" class="form-label">Description:</label>
+          <textarea maxlength="250" class="form-control event-input" type="text" id="event-description"
+            name="event-description" rows="3" placeholder="Max 250 characters"></textarea>
         </div>
-        <div class="form-group">
-          <label for="event-date">Date:</label>
-          <input class="form-input event-input" type="datetime-local" id="event-date" name="event-date" />
+        <div class="mb-2">
+          <label for="event-date" class="form-label">Date:</label>
+          <input class="form-control event-input" type="datetime-local" id="event-date" name="event-date" />
         </div>
-        <div class="form-group">
-          <label for="event-venue">Venue:</label>
-          <select class="form-input event-input" id="event-venue" name="event-venue">
+        <div class="mb-2">
+          <label for="event-venue" class="form-label">Venue:</label>
+          <select class="form-select event-input" id="event-venue" name="event-venue">
             {{#each venues as |venue|}}
-              <option value='{{venue.id}}'>{{venue.name}}</option>
+            <option value='{{venue.id}}'>{{venue.name}}</option>
             {{/each}}
           </select>
         </div>
-        <br>
-        <div class="form-group">
-          <button type="submit" class="btn btn-primary btn-dark homepage-btn">Create</button>
+        <div class="mt-3">
+          <button type="submit" class="btn btn-primary btn-dark create-btn">Create</button>
         </div>
       </form>
     </div>
     {{#if events.length}}
-    <div class="col-md-6 event-list">
+    <div class="col-md-6 event-list mt-2">
       <h3>My Events:</h3>
-      <br>
       {{#each events as |event|}}
-        <div class="row mb-2">
-          <div class="col-md-8">
-            <h4><a href="/event/{{event.id}}" class="profile-event-name">{{event.name}}</a></h4>
-            <p>{{event.description}}</p>
-            <p>Date: {{format_date event.date}} {{format_time event.date}}</p>
-          </div>
-          <div class="col-md-4">
-            <button class="btn btn-primary btn-dark update-btn" data-id="{{event.id}}" id="updateEventButton">Update</button>
-          <button class="btn btn-primary btn-dark delete-btn" data-id="{{event.id}}">Delete</button>
-          </div>
+      <div class="row mt-4">
+        <div class="col-md-8">
+          <h4><a href="/event/{{event.id}}" class="profile-event-name">{{event.name}}</a></h4>
+          <p><span>Date:</span> {{format_date event.date}} <span>-</span> {{format_time event.date}}</p>
+          <p>{{event.description}}</p>
         </div>
+        <div class="col-md-4">
+          <button class="btn btn-primary btn-dark update-btn" data-id="{{event.id}}"
+            id="updateEventButton">Edit</button>
+          <button class="btn btn-primary btn-dark delete-btn" data-id="{{event.id}}">Delete</button>
+        </div>
+      </div>
       {{/each}}
     </div>
     {{/if}}
   </div>
 </div>
-
+<!-- JavaScript file for handling the create & delete event functionality -->
 <script src="./js/profile.js"></script>
