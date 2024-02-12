@@ -11,7 +11,6 @@
 <ol>
     <li><a href="#built-with">Built With</a></li>
     <li><a href="#description">Description</a></li>
-    <li><a href="#installation">Installation</a></li>
     <li><a href="#usage">Usage</a></li>
     <li><a href="#visuals">Visuals</a></li>
     <li><a href="#contributions">Contributions</a></li>
@@ -42,7 +41,6 @@
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## Description
-
 This is a party planner app that allows users to browse, create, edit, and delete events. The target user(s) for this app includes users who want to host/attend events, party planning companies, party venue owners, and party vendors. 
 
 With so many events happening all the time, it's hard to plan and keep these parties organized. Our app gives users and communities a organized space to view what events are going on and when and where they will be. This app is a great solution for people who attend and host many events to keep them organized in their own dashboard. 
@@ -53,12 +51,7 @@ This app gives a chance for party planning companies, party venue owners, and pa
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-## Installation
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
 ## Usage
-
 This app allows users to connect with the community by allowing them to browse parties that other users have created. Logged in users are able to RSVP to the event, letting the host know that they will be attending. At anytime, they are also able to modify their attendance. 
 
 Logged in users are also able to create events by submitting a form to the app. The app will allow you to choose the specified venues that are in the database. In addition to that, the app will also show available vendors that might be able to help you out with the party that's being planned. Once the party is created, it will be shown on the Events page. If user wants to modify their event (name, location, description, or time) they will be able to do that on the events page as well. They will also be able to see who has RSVP'd to the event, keeping track of the capacity. If the user wants to delete the event, that is also possible, and it will be removed from the database.
@@ -77,7 +70,6 @@ Users are able to create their own profile to RSVP and create their own events. 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## Contributions
-
 In addition to that, some websites that helped with the build of this party planning app include:
 
 - [Prevent Google Maps from loading the Roboto font](https://gist.github.com/boffey/8516b0091649161cb09e244d63076256)
@@ -91,7 +83,6 @@ Here are the templates/icons used in the README file:
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## Roadmap
-
 While we have achieved everything on our MVP, there are aspects of the project we would like to further develop in as well. 
 
 - [ ] Ability to send out invites
@@ -118,13 +109,11 @@ While we have achieved everything on our MVP, there are aspects of the project w
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## License
-
 MIT License was used for this project. Please refer to the repo for more information.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## Questions
-
 For any questions you have, please do not hesitate to reach out to us.
 
 Developers:
