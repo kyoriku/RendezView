@@ -109,7 +109,7 @@ While we have achieved everything on our MVP, there are aspects of the project w
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## License
-MIT License was used for this project. Please refer to the repo for more information.
+This application is covered by the [MIT](https://opensource.org/licenses/MIT) license.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
