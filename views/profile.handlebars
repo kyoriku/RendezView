@@ -34,9 +34,9 @@
         </div>
       </form>
     </div>
-    {{#if events.length}}
     <div class="col-md-6 event-list mt-2">
       <h3>My Events:</h3>
+      {{#if events.length}}
       {{#each events as |event|}}
       <div class="row mt-4">
         <div class="col-md-8">
@@ -52,6 +52,8 @@
       </div>
       {{/each}}
     </div>
+    {{else}}
+    <p class="my-4">No created events</p>
     {{/if}}
   </div>
 </div>
