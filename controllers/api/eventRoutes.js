@@ -1,7 +1,8 @@
 // Importing necessary modules and dependencies
 const router = require(`express`).Router();
-const { Event, Rsvp } = require(`../../models`);
+const { Event, Rsvp, Venue } = require(`../../models`);
 const withAuth = require(`../../utils/auth`);
+const { geocodeAddress } = require('../../utils/geocoding');
 
 // Route to get all events when the "Events" tab is pressed; accessible to all users
 router.get(`/`, async (req, res) => {
@@ -20,63 +21,111 @@ router.get(`/`, async (req, res) => {
 });
 
 // Route to get a single event by ID; only accessible to logged-in users (withAuth middleware)
-router.get(`/:id`, withAuth, async (req, res) => {
+router.get('/:id', async (req, res) => {
   try {
-    // Find a specific event by its primary key (ID)
-    const eventData = await Event.findByPk(req.params.id);
-    // Send the event data as a JSON response with a 200 status
-    res.status(200).json(eventData);
-  } catch (err) {
-    // Handle errors by sending a 500 status and the error details
-    res.status(500).json(err);
+    const event = await Event.findByPk(req.params.id, {
+      include: [{ model: Venue }]
+    });
+
+    if (!event) {
+      return res.status(404).send('Event not found');
+    }
+
+    // res.render('event-details', {
+    //   name: event.name,
+    //   description: event.description,
+    //   date: event.date,
+    //   venue: {
+    //     name: event.venue.name,
+    //     latitude: event.venue.latitude,
+    //     longitude: event.venue.longitude
+    //   },
+    //   // ... other data
+    // });
+    res.status(200).json(event);
+  } catch (error) {
+    console.error('Error fetching event:', error);
+    res.status(500).send('Server error');
   }
 });
 
 // Route to create a new event; only accessible to logged-in users (withAuth middleware)
-router.post(`/`, withAuth, async (req, res) => {
+router.post('/', withAuth, async (req, res) => {
   try {
-    // Destructure relevant data from the request body
-    const { name, description, date, venue } = req.body;
-    // Create a new event in the database with the provided data
+    const { name, description, date, address } = req.body;
+
+    // Geocode the address
+    const { latitude, longitude } = await geocodeAddress(address);
+
+    // Create a new venue
+    const newVenue = await Venue.create({
+      name: address,
+      latitude,
+      longitude
+    });
+
+    // Create a new event
     const newEvent = await Event.create({
       name,
       description,
       date,
-      venue_id: venue,
+      venue_id: newVenue.id,
       user_id: req.session.user_id,
     });
-    // Send the newly created event as a JSON response with a 200 status
+
     res.status(200).json(newEvent);
+    console.log(latitude, longitude);
+    console.log(address)
   } catch (err) {
-    // Handle errors by sending a 400 status and the error details
-    res.status(400).json(err);
+    console.error(err);
+    res.status(400).json({ error: 'Failed to create event', details: err.message });
   }
-});
+})
 
 // Route to update an existing event; only accessible to the event creator when logged in
-router.put(`/:id`, withAuth, async (req, res) => {
+router.put('/:id', withAuth, async (req, res) => {
   try {
-    // Update the event data in the database based on the provided request body
-    const updatedEvents = await Event.update(
+    const { name, description, date, address } = req.body;
+    const eventId = req.params.id;
+
+    // Fetch the current event to get its venue
+    const event = await Event.findByPk(eventId, { include: Venue });
+    if (!event) {
+      return res.status(404).json({ error: 'Event not found' });
+    }
+
+    // Geocode the new address
+    const { latitude, longitude } = await geocodeAddress(address);
+
+    // Update or create venue
+    let venue;
+    if (event.venue) {
+      venue = await Venue.update(
+        { name: address, latitude, longitude },
+        { where: { id: event.venue_id } }
+      );
+    } else {
+      venue = await Venue.create({ name: address, latitude, longitude });
+    }
+
+    // Update the event
+    const updatedEvent = await Event.update(
       {
-        name: req.body.name,
-        description: req.body.description,
-        date: req.body.date,
-        venue_id: req.body.venue,
-        // Additional fields can be added for updating
+        name,
+        description,
+        date,
+        venue_id: venue.id,
       },
       {
-        where: {
-          id: req.params.id,
-        }
+        where: { id: eventId },
+        returning: true,
       }
     );
-    // Send the updated event data as a JSON response
-    res.json(updatedEvents);
+
+    res.json(updatedEvent[1][0]);
   } catch (err) {
-    // Handle errors by logging and sending a 500 status with an error message
     console.error(err);
-    res.status(500).json({ error: 'Internal Server Error' });
+    res.status(500).json({ error: 'Internal Server Error', details: err.message });
   }
 });
 

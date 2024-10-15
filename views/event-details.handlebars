@@ -2,14 +2,14 @@
 <div class="indv-banner">
   <h1 class="upcoming-text text-center">{{name}}</h1>
 </div>
-<!-- Google Map & Info -->
+<!-- Map & Info -->
 <div class="row m-4 event-holder">
-  <!-- Google Map (Order 1 on medium and larger screens, Order 3 on small screens) -->
-  <div class="col-md-4 order-md-1 order-3 google-map my-3 d-flex justify-content-center">
-    <div id="map"></div>
+  <!-- Map (Order 1 on medium and larger screens, Order 3 on small screens) -->
+  <div class="col-md-4 order-md-1 order-3 map my-4 d-flex justify-content-center">
+    <div id="map" data-latitude="{{{venue.latitude}}}" data-longitude="{{{venue.longitude}}}"></div>
   </div>
   <!-- Event details column (Order 2 on medium and larger screens, Order 1 on small screens) -->
-  <div class="col-md-8 order-md-2 order-1 mt-2">
+  <div class="col-md-8 order-md-2 order-1 mt-3 px-4">
     <!-- Event details -->
     <div>
       <p class="event-head">{{description}}</p>
@@ -18,28 +18,28 @@
       <p class="event-head"><span>Hosted by:</span> {{user.username}}
     </div>
     <!-- List of Attendees -->
-    <div class="row attendees-section">
+    <div class="row attendees-section m-0 px-0">
       <h3 class="attendees-header">Attendees ({{rsvps.length}})</h3>
       <div class="attendees-list">
         {{#if rsvps.length}}
-          {{#each rsvps}}
-            <div class="attendee-item">
-              <span class="attendee-username">{{user.username}}</span>
-            </div>
-          {{/each}}
+        {{#each rsvps}}
+        <div class="attendee-item">
+          <span class="attendee-username">{{user.username}}</span>
+        </div>
+        {{/each}}
         {{else}}
-          <div class="no-attendees ">No attendees yet.</div>
+        <div class="no-attendees ">No attendees yet.</div>
         {{/if}}
       </div>
     </div>
     <!-- RSVP & Cancel RSVP buttons column (Order 3 on medium and larger screens, Order 2 on small screens) -->
-    <div class="col-md-12 order-md-3 order-2 mt-3">
+    <div class="col-md-12 order-md-3 order-2">
       {{#if logged_in}}
       {{#unless hasRSVP}}
       <!-- RSVP button -->
       <div class="rsvp-btn text-left">
         <form action="/event/{{id}}/rsvp">
-          <button type="submit" class="btn btn-dark homepage-btn">RSVP</button>
+          <button type="submit" class="btn btn-dark homepage-btn my-3">RSVP</button>
         </form>
       </div>
       {{/unless}}
@@ -47,44 +47,20 @@
       <!-- Cancel RSVP button -->
       <div class="cancel-rsvp-btn text-left">
         <form action="/event/{{id}}/cancel-rsvp">
-          <button type="submit" class="btn btn-dark homepage-btn">Cancel RSVP</button>
+          <button type="submit" class="btn btn-dark homepage-btn my-3">Cancel RSVP</button>
         </form>
       </div>
       {{/if}}
       {{else}}
       <!-- Message for non-logged-in users -->
       <div class="text-start">
-        <p class="login-to-rsvp">Please <a href="/login?redirect=/event/{{id}}" class="text-decoration-none">login</a> to RSVP for this event.</p>
+        <p class="login-to-rsvp">Please <a href="/login?redirect=/event/{{id}}" class="text-decoration-none">login</a>
+          to RSVP for this event.</p>
       </div>
       {{/if}}
     </div>
   </div>
-<!-- Google Map API -->
-<script>
-  function initMap() {
-    var center = { lat: {{venue.latitude}}, lng: {{venue.longitude}} };
-
-    var map = new google.maps.Map(document.getElementById('map'), {
-      zoom: 15, 
-      center: center
-    });
-
-    var marker = new google.maps.Marker({
-      position: center,
-      map: map,
-      title: 'My Location'
-    });
-  }
-  // Prevent Google Maps from loading the Roboto font
-  var head = document.getElementsByTagName('head')[0];
-  var insertBefore = head.insertBefore;
-  head.insertBefore = function (newElement, referenceElement) {
-    if (newElement.href && newElement.href.indexOf('https://fonts.googleapis.com/css?family=Roboto') === 0) {
-      return;
-    }
-    insertBefore.call(head, newElement, referenceElement);
-  };
-</script>
-<script src={{map_string}}></script>
-<!-- JavaScript file for handling the RSVPfunctionality -->
-<script src="/js/rsvp.js"></script>
+  <!-- JavaScript file for handling the Map functionality -->
+  <script src="/js/map.js"></script>
+  <!-- JavaScript file for handling the RSVPfunctionality -->
+  <script src="/js/rsvp.js"></script>

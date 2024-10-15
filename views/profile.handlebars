@@ -9,25 +9,24 @@
       <h3 class="mb-4">Create a New Event:</h3>
       <form class="form new-event-form">
         <div class="mb-2">
-          <label for="event-name" class="form-label">Event name:</label>
-          <input class="form-control event-input" type="text" id="event-name" name="event-name" maxlength="50" placeholder="Max 50 characters"/>
+          <label for="event-name" class="form-label">Event name: <span class="required">*</span></label>
+          <input class="form-control event-input" type="text" id="event-name" name="event-name" maxlength="50"
+            placeholder="Enter the name of your event (maximum 50 characters)" required />
         </div>
         <div class="form-group mb-2">
-          <label for="event-description" class="form-label">Description:</label>
+          <label for="event-description" class="form-label">Description: <span class="required">*</span></label>
           <textarea maxlength="250" class="form-control event-input" type="text" id="event-description"
-            name="event-description" rows="3" placeholder="Max 250 characters"></textarea>
+            name="event-description" rows="4" placeholder="Describe the event in detail (maximum 250 characters)"
+            required></textarea>
         </div>
         <div class="mb-2">
-          <label for="event-date" class="form-label">Date:</label>
-          <input class="form-control event-input" type="datetime-local" id="event-date" name="event-date" />
+          <label for="event-date" class="form-label">Date: <span class="required">*</span></label>
+          <input class="form-control event-input" type="datetime-local" id="event-date" name="event-date" required />
         </div>
         <div class="mb-2">
-          <label for="event-venue" class="form-label">Venue:</label>
-          <select class="form-select event-input" id="event-venue" name="event-venue">
-            {{#each venues as |venue|}}
-            <option value='{{venue.id}}'>{{venue.name}}</option>
-            {{/each}}
-          </select>
+          <label for="event-address" class="form-label">Venue: <span class="required">*</span></label>
+          <input class="form-control event-input" type="text" id="event-address" name="event-address" maxlength="100"
+            placeholder="Enter an address, venue, or location name (maximum 100 characters)" required />
         </div>
         <div class="mt-3">
           <button type="submit" class="btn btn-primary btn-dark create-btn">Create</button>

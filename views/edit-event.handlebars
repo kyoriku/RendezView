@@ -22,14 +22,10 @@
     <input class="form-control event-input" type="datetime-local" id="event-date" name="event-date" />
   </div>
   <!-- Form field for selecting the event venue from a dropdown menu -->
-  <div class="form-group mb-2">
-    <label for="event-venue" class="form-label">Venue:</label>
-    <select class="form-control event-input" id="event-venue" name="event-venue">
-      {{#each venues as |venue|}}
-      <!-- Option for each venue with its id as the value and name as the display text -->
-      <option value='{{venue.id}}'>{{venue.name}}</option>
-      {{/each}}
-    </select>
+  <div class="mb-2">
+    <label for="event-venue" class="form-label">Address:</label>
+    <input class="form-control event-input" type="text" id="event-venue" name="event-address"
+      placeholder="Enter event address" />
   </div>
   <!-- Form submission button with data attributes for the event ID -->
   <div class="form-group mt-3">
@@ -37,7 +33,5 @@
       id="updateEventButton">Update</button>
   </div>
 </form>
-
 <!-- JavaScript file for handling the edit event functionality -->
 <script src="/js/edit-event.js"></script>
-
