@@ -12,6 +12,11 @@
   .create-btn {
     margin-bottom: 16px;
   }
+
+  .px-4, .mt-3, .my-4 {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
 }
 
 @media screen and (max-width: 575px) {
@@ -52,12 +57,7 @@
   }
 
   .rsvp-btn, .cancel-rsvp-btn {
-    margin-bottom: 16px !important;
     text-align: center !important;
-  }
-
-  .google-map {
-    margin-bottom: 40px !important;
   }
 
   .footer p {

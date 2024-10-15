@@ -15,16 +15,16 @@ const editFormHandler = async (event) => {
   const name = event.target.querySelector('#event-name').value.trim();
   const description = event.target.querySelector('#event-description').value.trim();
   const date = event.target.querySelector('#event-date').value.trim();
-  const venue = event.target.querySelector(`#event-venue`).value.trim();
+  const address = event.target.querySelector(`#event-venue`).value.trim();
   // Get the event ID from the URL using the helper function
   const event_id = getEventIdFromUrl();
 
   // Check if all required fields are filled
-  if (name && description && date && venue) {
+  if (name && description && date && address) {
     // Send a PUT request to update the event data
     const response = await fetch(`/api/events/${event_id}`, {
       method: 'PUT',
-      body: JSON.stringify({ name, description, date, venue }),
+      body: JSON.stringify({ name, description, date, address }),
       headers: {
         'Content-Type': 'application/json',
       },
@@ -69,7 +69,7 @@ const fetchEventData = async () => {
       document.getElementById('event-name').value = eventData.name;
       document.getElementById('event-description').value = eventData.description;
       document.getElementById('event-date').value = formattedDate;
-      document.getElementById('event-venue').value = eventData.venue_id;
+      document.getElementById('event-venue').value = eventData.venue.name;
     } else {
       // Log an error message if fetching event data fails
       console.error('Failed to fetch event data for editing');
