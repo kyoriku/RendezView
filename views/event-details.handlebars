@@ -18,36 +18,47 @@
       <p class="event-head"><span>Hosted by:</span> {{user.username}}
     </div>
     <!-- List of Attendees -->
-    <div class="row attendee-header">
-      <p class="event-head"><span>Attendees:</span></p>
+    <div class="attendees-section">
+      <h3 class="attendees-header">Attendees ({{rsvps.length}})</h3>
+      <div class="attendees-list">
+        {{#if rsvps.length}}
+          {{#each rsvps}}
+            <div class="attendee-item">
+              <span class="attendee-username">{{user.username}}</span>
+            </div>
+          {{/each}}
+        {{else}}
+          <div class="no-attendees ">No attendees yet.</div>
+        {{/if}}
+      </div>
     </div>
-    <div class="row attendee-list"></div>
-    <ul>
-      {{#each rsvps}}
-      <li class="attendee py-1 px-2">{{user.username}}</li>
-      {{/each}}
-    </ul>
+    <!-- RSVP & Cancel RSVP buttons column (Order 3 on medium and larger screens, Order 2 on small screens) -->
+    <div class="col-md-12 order-md-3 order-2 mt-3">
+      {{#if logged_in}}
+      {{#unless hasRSVP}}
+      <!-- RSVP button -->
+      <div class="rsvp-btn text-left">
+        <form action="/event/{{id}}/rsvp">
+          <button type="submit" class="btn btn-dark homepage-btn">RSVP</button>
+        </form>
+      </div>
+      {{/unless}}
+      {{#if hasRSVP}}
+      <!-- Cancel RSVP button -->
+      <div class="cancel-rsvp-btn text-left">
+        <form action="/event/{{id}}/cancel-rsvp">
+          <button type="submit" class="btn btn-dark homepage-btn">Cancel RSVP</button>
+        </form>
+      </div>
+      {{/if}}
+      {{else}}
+      <!-- Message for non-logged-in users -->
+      <div class="text-start">
+        <p class="login-to-rsvp event-head">Please <a href="/login?redirect=/event/{{id}}" class="text-decoration-none">login</a> to RSVP for this event.</p>
+      </div>
+      {{/if}}
+    </div>
   </div>
-  <!-- RSVP & Cancel RSVP buttons column (Order 3 on medium and larger screens, Order 2 on small screens) -->
-  <div class="col-md-12 order-md-3 order-2 mt-3">
-    <!-- RSVP button -->
-    {{#unless hasRSVP}}
-    <div class="rsvp-btn text-center">
-      <form action="/event/{{id}}/rsvp">
-        <button type="submit" class="btn btn-dark homepage-btn">RSVP</button>
-      </form>
-    </div>
-    {{/unless}}
-    <!-- Cancel RSVP button -->
-    {{#if hasRSVP}}
-    <div class="cancel-rsvp-btn text-center">
-      <form action="/event/{{id}}/cancel-rsvp">
-        <button type="submit" class="btn btn-dark homepage-btn">Cancel RSVP</button>
-      </form>
-    </div>
-    {{/if}}
-  </div>
-</div>
 <!-- Google Map API -->
 <script>
   function initMap() {

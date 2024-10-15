@@ -42,8 +42,10 @@ router.post('/login', async (req, res) => {
       req.session.user_id = userData.id;
       req.session.logged_in = true;
       
-      // res.json({ user: userData, message: 'You are now logged in!' });
-      res.redirect('/profile');
+      // Check if there's a redirect URL in the query parameters
+      const redirectUrl = req.query.redirect || '/profile';
+      
+      res.redirect(redirectUrl);
     });
 
   } catch (err) {

@@ -6,6 +6,7 @@ const loginFormHandler = async (event) => {
   const email = document.querySelector('#email-login').value.trim();
   const password = document.querySelector('#password-login').value.trim();
   const errorMessageElement = document.getElementById('login-error-message');
+  const redirectUrl = document.querySelector('#redirect-login').value.trim();
 
   if (email && password) { // Check if email and password are provided
     showLoadingSpinner('login-spinner'); // Show the loading spinner
@@ -19,7 +20,7 @@ const loginFormHandler = async (event) => {
       });
 
       if (response.ok) {
-        document.location.replace('/profile'); // Redirect to the profile page on successful login
+        document.location.replace(redirectUrl || '/profile'); // Redirect to the specified URL or profile page on successful login
       } else {
         const errorMessage = await response.text(); // Get the error message from the response
         displayErrorMessage(errorMessageElement, errorMessage); // Display the error message
@@ -42,6 +43,7 @@ const signupFormHandler = async (event) => {
   const email = document.querySelector('#email-signup').value.trim();
   const password = document.querySelector('#password-signup').value.trim();
   const errorMessageElement = document.getElementById('signup-error-message');
+  const redirectUrl = document.querySelector('#redirect-signup').value.trim();
 
   if (username && email && password) { // Check if all required fields are provided
     showLoadingSpinner('signup-spinner'); // Show the loading spinner
@@ -55,7 +57,7 @@ const signupFormHandler = async (event) => {
       });
 
       if (response.ok) {
-        document.location.replace('/profile'); // Redirect to the profile page on successful signup
+        document.location.replace(redirectUrl || '/profile'); // Redirect to the specified URL or profile page on successful signup
       } else {
         const errorMessage = await response.text(); // Get the error message from the response
         displayErrorMessage(errorMessageElement, errorMessage); // Display the error message
