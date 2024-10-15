@@ -227,4 +227,19 @@ router.get('/login', (req, res) => {
   res.render('login', { redirectUrl });
 });
 
+// Route: Signup Page
+router.get('/signup', (req, res) => {
+  // Redirect to profile page if already logged in
+  if (req.session.logged_in) {
+    res.redirect('/profile');
+    return;
+  }
+
+  // Get the redirect URL from query parameters, default to '/profile'
+  const redirectUrl = req.query.redirect || '/profile';
+
+  // Render signup page, passing the redirect URL
+  res.render('signup', { redirectUrl });
+});
+
 module.exports = router;
