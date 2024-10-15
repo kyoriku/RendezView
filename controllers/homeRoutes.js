@@ -56,7 +56,7 @@ router.get('/events', async (req, res) => {
 });
 
 // Individual Event Page
-router.get("/event/:id", withAuth, async (req, res) => {
+router.get("/event/:id", async (req, res) => {
   try {
     // Fetch a specific event with associated user and RSVP information
     const eventData = await Event.findByPk(req.params.id, {
@@ -74,20 +74,27 @@ router.get("/event/:id", withAuth, async (req, res) => {
     const event = eventData.get({ plain: true });
     const map_string = process.env.MAP_STRING;
     
-    // Check if the user has RSVP'd for the event
-    const existingRSVP = await Rsvp.findOne({
-      where: {
-        user_id: req.session.user_id,
-        event_id: event.id,
-      },
-    });
+    // Check if the user is logged in
+    const logged_in = req.session.logged_in || false;
+    
+    let hasRSVP = false;
+    if (logged_in) {
+      // Check if the user has RSVP'd for the event (only if logged in)
+      const existingRSVP = await Rsvp.findOne({
+        where: {
+          user_id: req.session.user_id,
+          event_id: event.id,
+        },
+      });
+      hasRSVP = !!existingRSVP;
+    }
 
     // Render individual event page with event details, login status, details visibility, and RSVP status
     res.render('event-details', {
       ...event,
-      logged_in: req.session.logged_in,
-      map_string: map_string,
-      hasRSVP: !!existingRSVP,
+      logged_in,
+      map_string,
+      hasRSVP,
     });
   } catch (err) {
     // Handle internal server error
@@ -213,8 +220,11 @@ router.get('/login', (req, res) => {
     return;
   }
 
-  // Render login page
-  res.render('login');
+  // Get the redirect URL from query parameters, default to '/profile'
+  const redirectUrl = req.query.redirect || '/profile';
+
+  // Render login page, passing the redirect URL
+  res.render('login', { redirectUrl });
 });
 
 module.exports = router;

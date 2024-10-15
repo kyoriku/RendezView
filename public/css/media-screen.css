@@ -53,6 +53,7 @@
 
   .rsvp-btn, .cancel-rsvp-btn {
     margin-bottom: 16px !important;
+    text-align: center !important;
   }
 
   .google-map {
