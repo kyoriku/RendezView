@@ -71,4 +71,8 @@
   .create-btn {
     margin-bottom: 16px;
   }
+
+  .map {
+    margin-bottom: 12px !important;
+  }
 }
