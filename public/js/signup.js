@@ -1,41 +1,42 @@
-// Asynchronous function to handle login form submission
-const loginFormHandler = async (event) => {
+// Asynchronous function to handle signup form submission
+const signupFormHandler = async (event) => {
   event.preventDefault(); // Prevent the default form submission behavior
 
   // Get user input values and error message element
-  const email = document.querySelector('#email-login').value.trim();
-  const password = document.querySelector('#password-login').value.trim();
-  const errorMessageElement = document.getElementById('login-error-message');
-  const redirectUrl = document.querySelector('#redirect-login').value.trim();
+  const username = document.querySelector('#name-signup').value.trim();
+  const email = document.querySelector('#email-signup').value.trim();
+  const password = document.querySelector('#password-signup').value.trim();
+  const errorMessageElement = document.getElementById('signup-error-message');
+  const redirectUrl = document.querySelector('#redirect-signup').value.trim();
 
-  if (email && password) { // Check if email and password are provided
-    showLoadingSpinner('login-spinner'); // Show the loading spinner
+  if (username && email && password) { // Check if all required fields are provided
+    showLoadingSpinner('signup-spinner'); // Show the loading spinner
 
     try {
-      // Make a POST request to the login API endpoint
-      const response = await fetch('/api/users/login', {
+      // Make a POST request to the signup API endpoint
+      const response = await fetch('/api/users', {
         method: 'POST',
-        body: JSON.stringify({ email, password }),
+        body: JSON.stringify({ username, email, password }),
         headers: { 'Content-Type': 'application/json' },
       });
 
       if (response.ok) {
-        document.location.replace(redirectUrl || '/profile'); // Redirect to the specified URL or profile page on successful login
+        document.location.replace(redirectUrl || '/profile'); // Redirect to the specified URL or profile page on successful signup
       } else {
         const errorMessage = await response.text(); // Get the error message from the response
         displayErrorMessage(errorMessageElement, errorMessage); // Display the error message
       }
     } catch (error) {
-      console.error('Error during login:', error);
+      console.error('Error during signup:', error);
       displayErrorMessage(errorMessageElement, 'An unexpected error occurred.');
     } finally {
-      hideLoadingSpinner('login-spinner'); // Hide the loading spinner, regardless of success or failure
+      hideLoadingSpinner('signup-spinner'); // Hide the loading spinner, regardless of success or failure
     }
   }
 };
 
-// Add event listeners to login form
-document.querySelector('.login-form').addEventListener('submit', loginFormHandler);
+// Add event listeners to signup form
+document.querySelector('.signup-form').addEventListener('submit', signupFormHandler);
 
 // Function to show loading spinner
 const showLoadingSpinner = (spinnerId) => {

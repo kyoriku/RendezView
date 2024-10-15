@@ -10,10 +10,24 @@ router.post('/', async (req, res) => {
       req.session.user_id = userData.id;
       req.session.logged_in = true;
 
-      res.status(200).json(userData);
+      // Check if there's a redirect URL in the request body
+      const redirectUrl = req.body.redirectUrl || '/profile';
+
+      // Send a response with the redirect URL
+      res.status(200).json({ 
+        user: userData,
+        redirectUrl: redirectUrl
+      });
     });
   } catch (err) {
-    res.status(400).json(err);
+    console.error('Registration error:', err);
+
+    // Check if it's a unique constraint error (e.g., email already exists)
+    if (err.name === 'SequelizeUniqueConstraintError') {
+      res.status(400).json({ message: 'This email is already registered.' });
+    } else {
+      res.status(500).json({ message: 'An error occurred during registration. Please try again.' });
+    }
   }
 });
 

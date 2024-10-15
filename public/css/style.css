@@ -54,7 +54,7 @@ body {
   text-wrap: balance;
 }
 
-.homepage-btn, .update-btn, .delete-btn, .edit-btn, .create-btn {
+.homepage-btn, .update-btn, .delete-btn, .edit-btn, .create-btn, .login-btn, .signup-btn {
   background-color: #5d5c5c;
 }
 
@@ -311,7 +311,7 @@ ul {
   margin-bottom: 36px;
 }
 
-.homepage-btn:hover, .update-btn:hover, .delete-btn:hover, .edit-btn:hover {
+.homepage-btn:hover, .update-btn:hover, .delete-btn:hover, .edit-btn:hover, .create-btn:hover, .login-btn:hover, .signup-btn:hover {
   background-color: #1e1e1e;
   border: 1px solid rgb(167, 162, 131);
 }

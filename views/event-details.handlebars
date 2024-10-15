@@ -3,7 +3,7 @@
   <h1 class="upcoming-text text-center">{{name}}</h1>
 </div>
 <!-- Google Map & Info -->
-<div class="row mx-4 mt-4 event-holder">
+<div class="row m-4 event-holder">
   <!-- Google Map (Order 1 on medium and larger screens, Order 3 on small screens) -->
   <div class="col-md-4 order-md-1 order-3 google-map my-3 d-flex justify-content-center">
     <div id="map"></div>
@@ -18,7 +18,7 @@
       <p class="event-head"><span>Hosted by:</span> {{user.username}}
     </div>
     <!-- List of Attendees -->
-    <div class="attendees-section">
+    <div class="row attendees-section">
       <h3 class="attendees-header">Attendees ({{rsvps.length}})</h3>
       <div class="attendees-list">
         {{#if rsvps.length}}
