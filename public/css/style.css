@@ -55,7 +55,8 @@ body {
 }
 
 .homepage-btn, .update-btn, .delete-btn, .edit-btn, .create-btn, .login-btn, .signup-btn {
-  background-color: #5d5c5c;
+  background-color: #1e1e1e;
+  border: 1px solid rgb(167, 162, 131);
 }
 
 .update-btn, .delete-btn, .edit-btn, .create-btn {
@@ -312,8 +313,8 @@ ul {
 }
 
 .homepage-btn:hover, .update-btn:hover, .delete-btn:hover, .edit-btn:hover, .create-btn:hover, .login-btn:hover, .signup-btn:hover {
-  background-color: #1e1e1e;
-  border: 1px solid rgb(167, 162, 131);
+  background-color: #5d5c5c;
+  border: 1px solid #212529;
 }
 
 .profile-event-name:hover {
