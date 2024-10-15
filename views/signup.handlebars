@@ -1,7 +1,7 @@
 <div class="login-main row-fluid">
   <div class="col-md-3 text-center m-4">
     <!-- Signup Form -->
-    <div class="signup-container mt-4">
+    <div class="signup-container">
       <h2 class="text-light">Sign Up</h2>
       <form class="form signup-form" id="signupForm">
         <div class="mb-3 text-start">
@@ -14,8 +14,8 @@
         </div>
         <div class="mb-3 text-start">
           <label for="password-signup" class="form-label">Password:</label>
-          <input class="form-control" type="password" id="password-signup"
-            placeholder="Password (minimum 8 characters)" required />
+          <input class="form-control" type="password" id="password-signup" placeholder="Password (minimum 8 characters)"
+            required />
         </div>
         <div class="mb-3">
           <button class="btn btn-dark signup-btn" type="submit">Sign Up</button>
@@ -27,10 +27,12 @@
         <div class="error-message bg-dark" id="signup-error-message"></div>
       </form>
       <div class="mt-3 bg-dark border border-secondary rounded">
-        <p class="my-1">Already have an account? <a href="/login" class="text-decoration-none">Login here</a></p>
+        <p class="my-1">Already have an account?
+          <a href="/login" class="text-decoration-none">Login here</a>
+        </p>
       </div>
     </div>
   </div>
 </div>
-<!-- JavaScript file for handling the login functionality -->
+<!-- JavaScript file for handling the signup functionality -->
 <script src="./js/signup.js"></script>
