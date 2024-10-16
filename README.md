@@ -48,7 +48,7 @@ Whether for personal or professional use, **RendezView** streamlines event plann
 ![homepage](./public/screenshots/rendezview-homepage.jpg)
 ![events](./public/screenshots/rendezview-upcoming-events.jpg)
 ![event-details](./public/screenshots/rendezview-event-details.jpg)
-![profile](./public/screenshots/rendezview-profile.jpg)
+![dashboard](./public/screenshots/rendezview-dashboard.jpg)
 ![edit-event](./public/screenshots/rendezview-edit-event.jpg)
 ![login](./public/screenshots/rendezview-login.jpg)
 ![signup](./public/screenshots/rendezview-signup.jpg)

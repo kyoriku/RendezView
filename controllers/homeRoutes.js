@@ -141,8 +141,8 @@ router.get('/my-events', withAuth, async (req, res) => {
   }
 });
 
-// Profile Page
-router.get('/profile', withAuth, async (req, res) => {
+// dashboard Page
+router.get('/dashboard', withAuth, async (req, res) => {
   try {
     // Fetch user information excluding the password
     const userData = await User.findByPk(req.session.user_id, {
@@ -167,8 +167,8 @@ router.get('/profile', withAuth, async (req, res) => {
     // Convert Sequelize instances to plain objects for rendering
     const venues = venueData.map((venue) => venue.get({ plain: true }));
 
-    // Render profile page with user details, created events, and login status
-    res.render('profile', {
+    // Render dashboard page with user details, created events, and login status
+    res.render('dashboard', {
       ...user,
       events,
       venues,
@@ -214,14 +214,14 @@ router.get("/edit-event/:id", withAuth, async (req, res) => {
 
 // Route: Login Page
 router.get('/login', (req, res) => {
-  // Redirect to profile page if already logged in
+  // Redirect to dashboard page if already logged in
   if (req.session.logged_in) {
-    res.redirect('/profile');
+    res.redirect('/dashboard');
     return;
   }
 
-  // Get the redirect URL from query parameters, default to '/profile'
-  const redirectUrl = req.query.redirect || '/profile';
+  // Get the redirect URL from query parameters, default to '/dashboard'
+  const redirectUrl = req.query.redirect || '/dashboard';
 
   // Render login page, passing the redirect URL
   res.render('login', { redirectUrl });
@@ -229,14 +229,14 @@ router.get('/login', (req, res) => {
 
 // Route: Signup Page
 router.get('/signup', (req, res) => {
-  // Redirect to profile page if already logged in
+  // Redirect to dashboard page if already logged in
   if (req.session.logged_in) {
-    res.redirect('/profile');
+    res.redirect('/dashboard');
     return;
   }
 
-  // Get the redirect URL from query parameters, default to '/profile'
-  const redirectUrl = req.query.redirect || '/profile';
+  // Get the redirect URL from query parameters, default to '/dashboard'
+  const redirectUrl = req.query.redirect || '/dashboard';
 
   // Render signup page, passing the redirect URL
   res.render('signup', { redirectUrl });

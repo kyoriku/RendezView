@@ -11,7 +11,7 @@ router.post('/', async (req, res) => {
       req.session.logged_in = true;
 
       // Check if there's a redirect URL in the request body
-      const redirectUrl = req.body.redirectUrl || '/profile';
+      const redirectUrl = req.body.redirectUrl || '/dashboard';
 
       // Send a response with the redirect URL
       res.status(200).json({ 
@@ -57,7 +57,7 @@ router.post('/login', async (req, res) => {
       req.session.logged_in = true;
       
       // Check if there's a redirect URL in the query parameters
-      const redirectUrl = req.query.redirect || '/profile';
+      const redirectUrl = req.query.redirect || '/dashboard';
       
       res.redirect(redirectUrl);
     });

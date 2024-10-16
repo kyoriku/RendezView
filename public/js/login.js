@@ -20,7 +20,7 @@ const loginFormHandler = async (event) => {
       });
 
       if (response.ok) {
-        document.location.replace(redirectUrl || '/profile'); // Redirect to the specified URL or profile page on successful login
+        document.location.replace(redirectUrl || '/dashboard'); // Redirect to the specified URL or dashboard page on successful login
       } else {
         const errorMessage = await response.text(); // Get the error message from the response
         displayErrorMessage(errorMessageElement, errorMessage); // Display the error message

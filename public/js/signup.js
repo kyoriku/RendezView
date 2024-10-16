@@ -21,7 +21,7 @@ const signupFormHandler = async (event) => {
       });
 
       if (response.ok) {
-        document.location.replace(redirectUrl || '/profile'); // Redirect to the specified URL or profile page on successful signup
+        document.location.replace(redirectUrl || '/dashboard'); // Redirect to the specified URL or dashboard page on successful signup
       } else {
         const errorMessage = await response.text(); // Get the error message from the response
         displayErrorMessage(errorMessageElement, errorMessage); // Display the error message
