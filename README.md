@@ -23,7 +23,7 @@
 [![Bootstrap](https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white)](https://getbootstrap.com/)
 [![jQuery](https://img.shields.io/badge/jquery-%230769AD.svg?style=for-the-badge&logo=jquery&logoColor=white)](https://jquery.com/)
 [![Handlebars](https://img.shields.io/badge/Handlebars%20js-f0772b?style=for-the-badge&logo=handlebarsdotjs&logoColor=black)](https://handlebarsjs.com/)
-[![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white)](https://nodejs.org/en)
+[![Node.JS](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)](https://nodejs.org/en)
 [![Express.js](https://img.shields.io/badge/express.js-%23404d59.svg?style=for-the-badge&logo=express&logoColor=%2361DAFB)](https://expressjs.com/)
 [![MySQL](https://img.shields.io/badge/mysql-%2300f.svg?style=for-the-badge&logo=mysql&logoColor=white)](https://www.mysql.com/)
 [![Sequelize](https://img.shields.io/badge/Sequelize-52B0E7?style=for-the-badge&logo=Sequelize&logoColor=white)](https://sequelize.org/)
@@ -45,11 +45,13 @@ Whether for personal or professional use, **RendezView** streamlines event plann
 **RendezView** aims to simplify event planning and attendance, fostering community connections and streamlining logistics. It also empowers businesses by expanding their reach and visibility.
 
 ## Screenshots
-![homepage](./public/images/rendezview-homepage.png)
-![events](./public/images/rendezview-events.png)
-![event-details](./public/images/rendezview-event-details.png)
-![profile](./public/images/rendezview-profile.png)
-![edit-event](./public/images/rendezview-edit-event.png)
+![homepage](./public/screenshots/rendezview-homepage.jpg)
+![events](./public/screenshots/rendezview-upcoming-events.jpg)
+![event-details](./public/screenshots/rendezview-event-details.jpg)
+![profile](./public/screenshots/rendezview-profile.jpg)
+![edit-event](./public/screenshots/rendezview-edit-event.jpg)
+![login](./public/screenshots/rendezview-login.jpg)
+![signup](./public/screenshots/rendezview-signup.jpg)
 
 ## Installation
 To install and run **RendezView** locally, follow these steps:
@@ -59,7 +61,6 @@ Make sure you have the following installed on your machine:
 - **[Node.js](https://nodejs.org/en/)** (v14 or higher)
 - **[MySQL](https://www.mysql.com/)** (for the database)
 - **[Git](https://git-scm.com/)** (optional, but recommended for cloning the repository)
-
 
 ### Setup
 1. Clone the repository to your local machine using Git:

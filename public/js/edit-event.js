@@ -87,3 +87,7 @@ document.addEventListener('DOMContentLoaded', fetchEventData);
 document
   .querySelector('.edit-event-form')
   .addEventListener('submit', editFormHandler);
+
+document.getElementById('event-date').addEventListener('click', function () {
+  this.showPicker();
+});
