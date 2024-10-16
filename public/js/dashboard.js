@@ -30,7 +30,7 @@ const newFormHandler = async (event) => {
       });
 
       if (response.ok) {
-        document.location.replace('/profile');
+        document.location.replace('/dashboard');
       } else {
         const errorData = await response.json();
         throw new Error(errorData.error || 'Failed to create event');
@@ -53,7 +53,7 @@ const delButtonHandler = async (event) => {
     });
 
     if (response.ok) {
-      document.location.replace('/profile');
+      document.location.replace('/dashboard');
     } else {
       alert('Failed to delete event');
     }

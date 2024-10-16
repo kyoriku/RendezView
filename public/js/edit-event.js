@@ -32,8 +32,8 @@ const editFormHandler = async (event) => {
 
     // Check if the request was successful
     if (response.ok) {
-      // Redirect to the user's profile page after successful editing
-      document.location.replace('/profile');
+      // Redirect to the user's dashboard page after successful editing
+      document.location.replace('/dashboard');
     } else {
       // Display an alert if the request fails
       alert('Failed to edit event');
