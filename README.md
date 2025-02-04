@@ -1,48 +1,66 @@
 # RendezView
-*An event planner app that allows users to browse, create, edit, and delete events.*
+*A full-stack event planning platform built with MVC architecture, featuring event creation, RSVP functionality, and personalized dashboards*
+
+## Built With
+[![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E.svg?style=for-the-badge&logo=JavaScript&logoColor=black)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+[![Node.JS](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)](https://nodejs.org/en)
+[![Express.js](https://img.shields.io/badge/express.js-%23404d59.svg?style=for-the-badge&logo=express&logoColor=%2361DAFB)](https://expressjs.com/)
+[![MySQL](https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white)](https://www.mysql.com/)
+[![Sequelize](https://img.shields.io/badge/Sequelize-52B0E7?style=for-the-badge&logo=Sequelize&logoColor=white)](https://sequelize.org/)
+[![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/CSS)
+[![Bootstrap](https://img.shields.io/badge/bootstrap-%238511FA.svg?style=for-the-badge&logo=bootstrap&logoColor=white)](https://getbootstrap.com/)
+[![Handlebars](https://img.shields.io/badge/Handlebars%20js-f0772b?style=for-the-badge&logo=handlebarsdotjs&logoColor=black)](https://handlebarsjs.com/)
+[![jQuery](https://img.shields.io/badge/jquery-%230769AD.svg?style=for-the-badge&logo=jquery&logoColor=white)](https://jquery.com/)
 
 ## Table of Contents
 - [Description](#description)
-  - [Features](#features)
-  - [Purpose and Goals](#purpose-and-goals)
+  - [Deployed Site](#deployed-site)
+- [Features](#features)
 - [Screenshots](#screenshots)
+- [Technical Details](#technical-details)
 - [Installation](#installation)
-  - [Prerequisites](#prerequisites)
-  - [Setup](#setup)
-  - [Usage](#usage)
-- [Roadmap](#roadmap)
-- [Questions](#questions)
-  - [Developers](#developers)
-  - [Deployed App](#deployed-app)
+- [Usage](#usage)
+- [Contributing](#contributing)
+- [Developers](#developers)
 - [License](#license)
-
-## Built With
-[![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/HTML)
-[![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/CSS)
-[![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E.svg?style=for-the-badge&logo=JavaScript&logoColor=black)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
-[![Bootstrap](https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white)](https://getbootstrap.com/)
-[![jQuery](https://img.shields.io/badge/jquery-%230769AD.svg?style=for-the-badge&logo=jquery&logoColor=white)](https://jquery.com/)
-[![Handlebars](https://img.shields.io/badge/Handlebars%20js-f0772b?style=for-the-badge&logo=handlebarsdotjs&logoColor=black)](https://handlebarsjs.com/)
-[![Node.JS](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)](https://nodejs.org/en)
-[![Express.js](https://img.shields.io/badge/express.js-%23404d59.svg?style=for-the-badge&logo=express&logoColor=%2361DAFB)](https://expressjs.com/)
-[![MySQL](https://img.shields.io/badge/mysql-%2300f.svg?style=for-the-badge&logo=mysql&logoColor=white)](https://www.mysql.com/)
-[![Sequelize](https://img.shields.io/badge/Sequelize-52B0E7?style=for-the-badge&logo=Sequelize&logoColor=white)](https://sequelize.org/)
+- [Questions](#questions)
 
 ## Description
-**RendezView** is an event planner app designed to simplify event organization for individuals, event planning companies, venue owners, and vendors. It provides a centralized platform where users can discover, create, and manage events through an intuitive interface. Attendees can track their upcoming events, RSVPs, and interactions via personalized dashboards.
+RendezView is a full-stack web application designed to streamline event planning and management through an intuitive interface. Built using the Model-View-Controller architectural pattern, this platform provides a robust environment for creating, managing, and discovering events.
 
-The app is especially useful for newcomers to a city, offering an accessible way to explore local events and foster social connections. **RendezView** also benefits businesses by allowing them to showcase their services and connect with potential clients, enhancing visibility within the event planning market.
+The application combines secure user authentication with comprehensive event management features, creating a professional space where users can organize events, manage RSVPs, and track attendance. The seamless integration of Express.js backend with Handlebars.js frontend templating ensures a smooth user experience while maintaining clean code organization through the MVC pattern.
 
-Whether for personal or professional use, **RendezView** streamlines event planning, making it efficient and enjoyable for all users.
+### Deployed Site
+Visit the live website at: [https://rendezviews-6983bdd1f9ce.herokuapp.com](https://rendezviews-6983bdd1f9ce.herokuapp.com)
 
-### Features
-- **Browse and Create Events:** Users can explore and create events with a flexible form that supports any venue or address.
-- **RSVP Functionality:** Logged-in users can RSVP to events, helping hosts manage attendance.
-- **Modify Event Details:** Event creators can update information while users can adjust their RSVP status.
-- **Personalized Dashboards:** Users manage events they’ve created through a dashboard, while attended events are tracked separately for convenience.
+## Features
+* **Event Management**
+  * Create and publish event listings
+  * Edit existing event details
+  * Delete unwanted events
+  * Flexible venue and address support
+  * Real-time updates for event information
 
-### Purpose and Goals
-**RendezView** aims to simplify event planning and attendance, fostering community connections and streamlining logistics. It also empowers businesses by expanding their reach and visibility.
+* **RSVP System**
+  * Track event attendance
+  * Manage RSVP status
+  * View attendee lists
+  * Update RSVP responses
+  * Attendance tracking functionality
+
+* **User Authentication**
+  * Secure registration and login
+  * Session management
+  * Protected routes
+  * Password encryption
+  * User role management
+
+* **Dashboard Interface**
+  * Personal event dashboard
+  * Created events management
+  * RSVP event tracking
+  * Event history view
+  * User profile management
 
 ## Screenshots
 ![homepage](./public/screenshots/rendezview-homepage.jpg)
@@ -50,96 +68,137 @@ Whether for personal or professional use, **RendezView** streamlines event plann
 ![event-details](./public/screenshots/rendezview-event-details.jpg)
 ![dashboard](./public/screenshots/rendezview-dashboard.jpg)
 ![edit-event](./public/screenshots/rendezview-edit-event.jpg)
-![login](./public/screenshots/rendezview-login.jpg)
-![signup](./public/screenshots/rendezview-signup.jpg)
+
+## Technical Details
+This event planning application was built using the following technologies and patterns:
+
+* **MVC Architecture**: 
+  * Models: Sequelize ORM model definitions with relationships and validations
+  * Views: Handlebars template engine with nested layouts and partials
+  * Controllers: Express.js route handlers separated into API and view routes
+  * Custom middleware with `withAuth` for protected routes
+  * Service separation for geocoding functionality
+
+* **Database Architecture**:
+  * `User` model with bcrypt password hashing hooks
+  * `Event` model with venue foreign key constraints
+  * `RSVP` junction table for Many-to-Many relationships
+  * `Venue` model with decimal precision coordinates
+  * Sequelize associations using `belongsTo`, `hasMany`, and `belongsToMany`
+
+* **Geocoding Implementation**:
+  * Axios HTTP client for Nominatim API requests
+  * Async/await pattern for coordinate fetching
+  * Custom User-Agent headers for API compliance
+  * Error handling for failed geocoding attempts
+  * Leaflet.js integration for map rendering
+
+* **Session Management**:
+  * Express-session middleware configuration
+  * Session persistence in database
+  * Custom redirect handling for protected routes
+  * Session destruction on logout
+  * Error state management in session
+
+* **Template System**:
+  * Custom Handlebars helper functions
+  * Conditional rendering with session checks
+  * Partial views for navigation and footer
+  * Client-side script injection
+  * Dynamic content rendering based on user state
+
+* **Frontend JavaScript**:
+  * AJAX calls using `fetch` API
+  * Event delegation patterns for dynamic content
+  * Form data serialization and validation
+  * Loading state triggers and spinners
+  * DOM manipulation for real-time updates
 
 ## Installation
-To install and run **RendezView** locally, follow these steps:
+To run this project locally:
 
-### Prerequisites
-Make sure you have the following installed on your machine:
-- **[Node.js](https://nodejs.org/en/)** (v14 or higher)
-- **[MySQL](https://www.mysql.com/)** (for the database)
-- **[Git](https://git-scm.com/)** (optional, but recommended for cloning the repository)
+1. Clone the repository
+    ```bash
+    git clone https://github.com/kyoriku/RendezView.git
+    ```
 
-### Setup
-1. Clone the repository to your local machine using Git:
-   ```bash
-   git clone https://github.com/kyoriku/RendezView.git
-   ```
+2. Navigate to the project directory
+    ```bash
+    cd RendezView
+    ```
 
-2. Navigate to the project directory:
-   ```bash
-   cd RendezView
-   ```
+3. Install dependencies
+    ```bash
+    npm install
+    ```
 
-3. Install the required dependencies:
-   ```bash
-   npm install
-   ```
+4. Create a `.env` file with the following variables
+    ```bash
+    DB_NAME='rendezview_db'
+    DB_USER='your_MySQL_username'
+    DB_PASSWORD='your_MySQL_password'
+    SESSION_SECRET='your_session_secret'
+    ```
 
-4. Create a .env file in the root directory and add the following variables:
-   ```bash
-   DB_NAME='rendezview_db'
-   DB_USER='your_username'  # Replace with your MySQL username
-   DB_PASSWORD='your_password'  # Replace with your MySQL password
-   SESSION_SECRET='your_session_secret'  # Replace with your Session Secret
-   ```
+5. Set up the database
+    ```bash
+    mysql -u root -p
+    source db/schema.sql
+    ```
 
-5. Make sure that your MySQL server is running. Create the database as specified in the .env file. You can do this using a MySQL client or command line:
-   ```bash
-   CREATE DATABASE rendezview_db;
-   ```
+6. (Optional) Seed the database
+    ```bash
+    npm run seed
+    ```
 
-6. If you want to add initial data to the database, run the seed script:
-   ```bash
-   npm run seed
-   ```
+## Usage
+1. Start the server
+    ```bash
+    npm start
+    ```
 
-### Usage:
-1. To start the application, run: 
-   ```bash
-   npm start
-   ```
+2. Access the application at `http://localhost:3001`
 
-   For development mode, use:
-   ```bash
-   npm run dev
-   ```
+3. Create an account to:
+   * Create and manage events
+   * RSVP to events
+   * Track event attendance
+   * View your event dashboard
 
-2. Once the server is running, you can access the app by navigating to http://localhost:3001 in your browser.
+## Contributing
+Contributions are welcome! Here are ways you can help:
 
-## Roadmap
-Future developments for **RendezView** include:
-- [ ] **Create Restricted Events**: Events accessible only to invited users and private groups.
-- [ ] **Ability to send out invites**: Hosts can invite specific users and co-hosts.
-- [ ] **Role Selection in the App**: Different roles (manager, vendor, user) with varying functionalities.
-- [ ] **Customizable Color Themes**: Templated options for party planning companies to match their branding.
+1. Fork the repository
+2. Create a feature branch
+    ```bash
+    git checkout -b feature/YourFeature
+    ```
+3. Make your changes - this could include:
+    * Adding new features
+    * Improving the UI/UX
+    * Optimizing database queries
+    * Enhancing security
+    * Bug fixes
+4. Commit your changes
+5. Push to your branch
+6. Open a Pull Request
 
-## Questions
-If you have any inquiries, feel free to reach out to the developers:
+Please ensure your contributions:
+* Follow the existing code style
+* Include appropriate error handling
+* Test all changes locally
+* Include clear descriptions in your pull request
 
-### Developers:
-- **Austin Graham**  
-  - GitHub: [kyoriku](https://github.com/kyoriku)  
-  - Email: [devkyoriku@gmail.com](mailto:devkyoriku@gmail.com)
-
-- **Kevin Quach**  
-  - GitHub: [quachies](https://github.com/quachies)  
-  - Email: [quachies@gmail.com](mailto:quachies@gmail.com)
-
-- **Harry MacMillan**  
-  - GitHub: [harrymac1972](https://github.com/harrymac1972)  
-  - Email: [harrymac1972@gmail.com](mailto:harrymac1972@gmail.com)
-
-- **Tiffany Chan**  
-  - GitHub: [tchan128](https://github.com/tchan128)  
-  - Email: [tchan12899@gmail.com](mailto:tchan12899@gmail.com)
-
-### Deployed App:
-[RendezView on Heroku](https://rendezviews-6983bdd1f9ce.herokuapp.com)
+## Developers
+* [![kyoriku](https://img.shields.io/badge/kyoriku-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/kyoriku) - Lead Developer: Full Backend Architecture & Implementation, Core Feature Development
+* [![harrymac1972](https://img.shields.io/badge/harrymac1972-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/harrymac1972) - Backend Support, Model Development
+* [![quachies](https://img.shields.io/badge/quachies-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/quachies) - Frontend Development, UI/UX Design
+* [![tchan128](https://img.shields.io/badge/tchan128-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/tchan128) - Frontend Support, UI/UX Wireframing
 
 ## License
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg?style=for-the-badge&logo=mit)](https://opensource.org/licenses/MIT)
 
 This project is licensed under the [MIT](https://opensource.org/licenses/MIT) license - see the LICENSE file for details.
+
+## Questions
+For any questions, feel free to email me at devkyoriku@gmail.com.
