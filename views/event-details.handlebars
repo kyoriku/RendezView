@@ -13,7 +13,7 @@
     <!-- Event details -->
     <div>
       <p class="event-head">{{description}}</p>
-      <p class="event-head"><span>Date:</span> {{format_date date}} <span>-</span> {{format_time date}}</p>
+      <p class="event-head"><span>Date:</span> {{format_date date}} <span>&#8226;</span> {{format_time date}}</p>
       <p class="event-head"><span>Venue:</span> {{venue.name}}</p>
       <p class="event-head"><span>Hosted by:</span> {{user.username}}
     </div>
@@ -54,13 +54,15 @@
       {{else}}
       <!-- Message for non-logged-in users -->
       <div class="text-start">
-        <p class="login-to-rsvp my-3">Please <a href="/login?redirect=/event/{{id}}" class="text-decoration-none">login</a>
+        <p class="login-to-rsvp my-3">Please <a href="/login?redirect=/event/{{id}}"
+            class="text-decoration-none">login</a>
           to RSVP for this event.</p>
       </div>
       {{/if}}
     </div>
   </div>
-  <!-- JavaScript file for handling the Map functionality -->
-  <script src="/js/map.js"></script>
-  <!-- JavaScript file for handling the RSVPfunctionality -->
-  <script src="/js/rsvp.js"></script>
+</div>
+<!-- JavaScript file for handling the Map functionality -->
+<script src="/js/map.js"></script>
+<!-- JavaScript file for handling the RSVPfunctionality -->
+<script src="/js/rsvp.js"></script>
